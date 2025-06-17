@@ -375,7 +375,282 @@
                 </div>
             </div>
         </section>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インフォグラフィック：失語症と意味ネットワークモデル</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        .custom-table th, .custom-table td {
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            text-align: left;
+        }
+        .custom-table th {
+            background-color: #e0f2f7;
+            color: #004e92;
+            font-weight: 700;
+        }
+        .custom-table tr:nth-child(even) {
+            background-color: #f8fcfd;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
 
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#000428] mb-2">脳の言葉の地図</h1>
+            <p class="text-lg md:text-xl text-[#004e92]">失語症と意味ネットワークモデルの理解</p>
+        </header>
+
+        <section id="introduction" class="mb-16">
+            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-4 text-center">意味ネットワークモデルとは？</h2>
+                <p class="text-base md:text-lg text-center leading-relaxed">
+                    私たちの知識は、バラバラに記憶されているわけではありません。「概念」という点の集まりが、関連性の強さに応じて「リンク」で結ばれた、巨大なネットワークとして脳内に存在します。これが意味ネットワークモデルです。失語症では、この言葉の地図の一部が損傷したり、道筋がうまく機能しなくなったりすることで、言葉の想起や理解に困難が生じると考えられています。
+                </p>
+            </div>
+        </section>
+
+        <section id="activation" class="mb-16">
+             <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-6 text-center">活性化拡散：思考はつながる</h2>
+                <p class="text-base md:text-lg text-center leading-relaxed mb-8">
+                    一つの概念が刺激されると、その「活性化」がリンクを伝って関連する概念へと波紋のように広がります。これが活性化拡散です。例えば「犬」という言葉を聞くと、関連の強い「吠える」や「散歩」といった概念が瞬時に思い浮かびます。
+                </p>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>刺激された概念 (起点)</th>
+                                <th>活性化が拡散する関連概念の例</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>犬</td>
+                                <td>動物、四足、吠える、散歩、しっぽ</td>
+                            </tr>
+                            <tr>
+                                <td>医者</td>
+                                <td>看護師、病院、薬、患者</td>
+                            </tr>
+                            <tr>
+                                <td>鳥</td>
+                                <td>飛ぶ、羽、巣、さえずる</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                 <p class="text-sm text-center text-gray-500 mt-4">
+                    失語症では、この活性化が弱まったり、途切れたりすることで、関連語の想起が困難になります。
+                </p>
+            </div>
+        </section>
+
+        <section id="phenomena" class="mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">典型性効果</h3>
+                    <p class="text-base leading-relaxed mb-4">
+                        「スズメは鳥？」と聞かれると即答できますが、「ダチョウは鳥？」と聞かれると少し考えてしまいます。カテゴリーを代表する典型的な例ほど、判断が速くなる現象です。これは、典型例ほどカテゴリーと強く、短く結びついているためです。
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="typicalityChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">プライミング効果</h3>
+                    <p class="text-base leading-relaxed mb-4">
+                        「医者」という言葉を見た後では、関連する「看護師」という言葉の認識が速くなります。先立つ情報（プライム）が、後の情報（ターゲット）の処理を助ける現象で、活性化拡散によって説明されます。
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="primingChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison" class="mb-16">
+             <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-6 text-center">モデルの進化：階層からネットワークへ</h2>
+                 <p class="text-base md:text-lg text-center leading-relaxed mb-8">
+                    初期の階層モデルは、情報を整理棚のように厳格な階層で捉えていましたが、典型性効果などを説明できませんでした。より柔軟な意味ネットワークモデルは、これらの現象をうまく説明できます。
+                </p>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>特徴・要素</th>
+                                <th>階層ネットワークモデル (旧)</th>
+                                <th>意味ネットワークモデル (現)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>**構造**</td>
+                                <td>厳密な階層構造（上位・下位概念）</td>
+                                <td>意味的関連性の強さに応じた柔軟なリンク</td>
+                            </tr>
+                            <tr>
+                                <td>**情報の継承**</td>
+                                <td>上位概念の特徴が下位概念に継承される</td>
+                                <td>厳密な継承はない（リンクの強さや距離で表現）</td>
+                            </tr>
+                            <tr>
+                                <td>**典型性効果の説明**</td>
+                                <td>説明が困難</td>
+                                <td>活性化拡散で説明可能（強く、速く伝わる）</td>
+                            </tr>
+                            <tr>
+                                <td>**プライミング効果の説明**</td>
+                                <td>説明が困難</td>
+                                <td>活性化拡散で説明可能（事前活性化）</td>
+                            </tr>
+                            <tr>
+                                <td>**失語症への適用**</td>
+                                <td>構造的損傷に焦点を当てがち</td>
+                                <td>連結性・活性化拡散の障害も考察できる</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+             </div>
+        </section>
+
+        <footer class="text-center text-gray-500 mt-12 py-6 border-t">
+            <p>このインフォグラフィックは、失語症における意味ネットワークモデルの理解を深めるために作成されました。</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: '判断時間 (ミリ秒)',
+                        color: '#004e92',
+                        font: { size: 14 }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#004e92',
+                        font: { size: 14, weight: 'bold' }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            }
+        };
+
+        const typicalityData = {
+            labels: ['典型例 (スズメ)', '非典型例 (ダチョウ)'].map(l => wrapLabel(l, 16)),
+            datasets: [{
+                label: '判断時間',
+                data: [850, 1150],
+                backgroundColor: ['#4285f4', '#79a6fe'],
+                borderColor: ['#004e92', '#004e92'],
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('typicalityChart'), {
+            type: 'bar',
+            data: typicalityData,
+            options: chartOptions
+        });
+
+        const primingData = {
+            labels: ['関連あり (医者→看護師)', '関連なし (パン→看護師)'].map(l => wrapLabel(l, 16)),
+            datasets: [{
+                label: '認識時間',
+                data: [550, 700],
+                backgroundColor: ['#4285f4', '#79a6fe'],
+                borderColor: ['#004e92', '#004e92'],
+                borderWidth: 1
+            }]
+        };
+
+        new Chart(document.getElementById('primingChart'), {
+            type: 'bar',
+            data: primingData,
+            options: chartOptions
+        });
+    </script>
+</body>
+</html>
         <section id="cognitive-model" class="mt-16">
             <h2 class="section-title">言語処理の核心モデル</h2>
             <p class="section-intro">
