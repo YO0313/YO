@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インフォグラフィック：失語症リハビリテーションの進化 - 認知神経心理学的アプローチの10年（前編）</title>
+    <title>インフォグラフィック：失語症リハビリテーションの進化 - 認知神経心理学的アプローチの10年</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -15,11 +15,11 @@
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
-            height: 350px;
-            max-height: 40vh;
+            height: 320px;
+            max-height: 400px;
         }
         @media (min-width: 768px) {
             .chart-container {
@@ -96,310 +96,43 @@
         .arrow-down-icon::after { content: '↓'; font-size: 1.2rem; }
         .arrow-up-icon::after { content: '↑'; font-size: 1.2rem; }
 
-        .path-h {
+        .path-h, .path-v {
             position: absolute;
             background-color: #6b7280;
-            height: 1px;
-            width: 100%;
             z-index: 10;
         }
-        .path-v {
-            position: absolute;
-            background-color: #6b7280;
-            width: 1px;
-            height: 100%;
-            z-index: 10;
-        }
-        .path-arrow-right::after {
+        .path-h { height: 1px; width: 100%; }
+        .path-v { width: 1px; height: 100%; }
+        
+        .path-arrow-right::after, .path-arrow-down::after, .path-arrow-up::after {
             content: '';
             position: absolute;
-            right: 0;
-            top: -3px;
             width: 0;
             height: 0;
+        }
+        .path-arrow-right::after {
+            right: 0;
+            top: -3px;
             border-top: 4px solid transparent;
             border-bottom: 4px solid transparent;
             border-left: 4px solid #6b7280;
         }
         .path-arrow-down::after {
-            content: '';
-            position: absolute;
             bottom: 0;
             left: -3px;
-            width: 0;
-            height: 0;
             border-left: 4px solid transparent;
             border-right: 4px solid transparent;
             border-top: 4px solid #6b7280;
         }
         .path-arrow-up::after {
-            content: '';
-            position: absolute;
             top: 0;
             left: -3px;
-            width: 0;
-            height: 0;
             border-left: 4px solid transparent;
             border-right: 4px solid transparent;
             border-bottom: 4px solid #6b7280;
         }
-        .model-inner-text {
-            font-size: 0.65rem;
-            line-height: 0.8rem;
-            color: #3C5A7D;
-        }
-
-        .arrow-pos-top-right { top: 0; right: -0.5rem; }
-        .arrow-pos-bottom-right { bottom: 0; right: -0.5rem; }
-        .arrow-pos-center-right { right: -0.5rem; top: 50%; transform: translateY(-50%); }
-        .arrow-pos-center-bottom { bottom: -0.5rem; left: 50%; transform: translateX(-50%); }
-        .arrow-pos-center-top { top: -0.5rem; left: 50%; transform: translateX(-50%); }
         
-        .relative-span { position: relative; display: inline-block; }
-        .dashed-border { border-style: dashed; }
-
-        /* Style for the table within the inserted text content */
-        .inserted-table th, .inserted-table td {
-            border: 1px solid #e2e8f0;
-            padding: 0.75rem;
-            text-align: left;
-            vertical-align: top;
-        }
-        .inserted-table th {
-            background-color: #f8fafc;
-            font-weight: 600;
-        }
-        .inserted-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* NEW CUSTOM STYLES FOR FLOWCHART */
-        .flowchart-step {
-            border-left-width: 6px; /* For the colored border */
-            border-style: solid;
-            /* Other styles like p-4, rounded-lg, bg-gray-50 are from Tailwind */
-        }
-        .flowchart-arrow {
-            /* Styles for the arrow symbol, colors are set directly in HTML with Tailwind */
-            color: #4a5568; /* General neutral color for consistency */
-        }
-    </style>
-</head>
-<body class="text-[#3C5A7D]">
-
-    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
-
-        <header class="text-center my-8 md:my-12">
-            <h1 class="text-3xl md:text-5xl font-bold text-[#00A6ED] tracking-tight">失語症リハビリテーションの進化</h1>
-            <p class="text-lg md:text-xl mt-4 text-[#3C5A7D]">認知神経心理学的アプローチがもたらしたこの10年の変革（前編）</p>
-        </header>
-
-        <section id="what-is-aphasia" class="mt-8">
-            <h2 class="section-title">失語症とは何か？</h2>
-            <p class="section-intro">
-                失語症は脳損傷により「聞く・話す・読む・書く」能力が障害される状態です。記憶や判断力は保たれる点で認知症とは異なります。
-            </p>
-        </section>
-
-        <section id="evaluation-process" class="mt-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #003f5c;">評価から訓練計画までの道のり</h2>
-                <p class="max-w-3xl mx-auto text-gray-600">効果的なリハビリは、正確な評価から始まります。個別化された訓練計画は、診断、症状の把握、そして患者の状態に応じた動的な調整を経て策定されます。</p>
-            </div>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <div class="flex flex-col md:flex-row items-stretch justify-between space-y-8 md:space-y-0 md:space-x-4">
-                    <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-blue-500">
-                        <h3 class="font-bold text-lg">① インテーク面接</h3>
-                        <p class="text-sm text-gray-600">主訴や生活環境を聴取し、信頼関係を構築します。</p>
-                    </div>
-                    <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
-                    <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-purple-500">
-                        <h3 class="font-bold text-lg">② 鑑別診断</h3>
-                        <p class="text-sm text-gray-600">失語症の有無・タイプ、合併症を特定します。（例：SLTA, WAB検査）</p>
-                    </div>
-                    <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
-                    <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-pink-500">
-                        <h3 class="font-bold text-lg">③ 掘り下げ検査</h3>
-                        <p class="text-sm text-gray-600">言語・非言語能力を詳細に把握し、強みと弱みを分析します。</p>
-                    </div>
-                    <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
-                    <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-orange-500">
-                        <h3 class="font-bold text-lg">④ 訓練計画立案</h3>
-                        <p class="text-sm text-gray-600">評価に基づき、個別化された目標と計画を策定・共有します。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="introduction">
-            <h2 class="section-title">認知神経心理学的アプローチ：失語症理解の新たな枠組み</h2>
-            <p class="section-intro">
-                認知神経心理学は、脳損傷患者に観察される認知機能の障害を通じて、正常な認知機能を解明する学際的分野です。失語症においては、単なる症状の羅列ではなく、その背後にある言語情報処理のどの特定プロセスに破綻が生じたのかを詳細に分析することで、より的確な評価と介入を可能にします。このアプローチは、神経学的な局所化と認知心理学的な情報処理モデルを結びつけ、なぜ特定の症状が現れるのかという「原因」に焦点を当てます。
-            </p>
-        </section>
-
-        <section id="shift">
-            <h2 class="section-title">アプローチの根本的シフト：症候群分類から機能的メカニズムの特定へ</h2>
-            <p class="section-intro">この10年で、失語症リハビリは「どの失語症タイプか」という大枠の分類から、「どの言語機能が、なぜ損なわれているのか」という、個人に焦点を当てた精密なアプローチへと劇的に変化しました。</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="card border-t-4 border-[#F2545B]">
-                    <h3 class="text-xl font-bold mb-4">10年前のアプローチ (Then)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><strong>診断:</strong> 標準検査に基づく症候群分類 (例: ブローカ失語)</li>
-                        <li><strong>焦点:</strong> 「何を言えないか」という現象の観察</li>
-                        <li><strong>訓練:</strong> タイプに応じた比較的汎用的な刺激法・行動療法</li>
-                        <li><strong>役割:</strong> セラピスト主導のセッション</li>
-                    </ul>
-                </div>
-                <div class="card border-t-4 border-[#72C546]">
-                    <h3 class="text-xl font-bold mb-4">現在のアプローチ (Now)</h3>
-                    <ul class="list-disc list-inside space-y-2 text-gray-700">
-                        <li><strong>診断:</strong> 機能的障害メカニズムの特定 (例: 出力音韻辞書の障害)</li>
-                        <li><strong>焦点:</strong> 「なぜ言えないか」という原因プロセスの分析</li>
-                        <li><strong>訓練:</strong> 障害メカニズムに直結したターゲット訓練</li>
-                        <li><strong>役割:</strong> テクノロジー活用と多職種・家族参加型モデル</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="detailed-cognitive-neuropsychology-text-insert" class="mt-16">
-            <h2 class="section-title">言語情報処理への認知神経心理学的アプローチ</h2>
-            <p class="section-intro">
-                ここでは、失語症を理解するための認知神経心理学的アプローチの理論的背景と、その進化について詳細に解説します。
-            </p>
-
-            <div class="card">
-                <h3 class="text-xl font-bold mb-4">1.1. 定義と核となる原則</h3>
-                <p class="text-gray-700 mb-4">
-                    認知神経心理学は、脳損傷患者に観察される認知機能の障害を研究することにより、正常な認知機能を理解することを目的とした学際的な分野です。このアプローチは、脳病変の神経学的観察と、正常な認知に関する認知心理学のモデルとの間の橋渡しを行います。
-                </p>
-                <p class="text-gray-700 mb-4">
-                    従来の神経学が脳の局所解剖学的部位に基づいて知識の障害を記述するのに対し、認知神経心理学は、正常な認知機能の理論的モデルにおける一つまたは複数の構成要素の障害という観点から、患者の行動を説明しようと試みます。この分野では、入力、出力、および様々な処理段階を含むコンピュータプログラムのような情報処理モデルを用いて、脳損傷が特定の症状をどのように引き起こすかを説明します。
-                </p>
-                <p class="text-gray-700">
-                    このアプローチは、言語障害を単に脳損傷の症状としてではなく、特定の識別可能な認知プロセスの破綻として捉える枠組みを提供します。純粋な解剖学的記述から機能的な処理記述への転換は、特定の症状が*なぜ*現れるのかについて、より詳細な理解を可能にします。特定の処理モジュールが障害されている場合、それは特定の誤りパターンを予測し、病変の正確な位置に関わらず、その病変が*原因*であると定義されます。この機能的説明は、解剖学的相関関係を超え、より的を絞った評価と介入へと繋がります。
-                </p>
-
-                <h3 class="text-xl font-bold mt-8 mb-4">1.2. 関連分野（認知心理学、言語学）との区別</h3>
-                <p class="text-gray-700 mb-4">
-                    認知神経心理学は、認知心理学と言語学という二つの主要な学問分野からその理論的基盤を導き出しています。認知心理学は、健常者における知識の構造を解明することに焦点を当てるのに対し、認知神経心理学はこれらのモデルを適用して、障害された認知を理解します。一方、言語学は統語論、意味論、語用論を含む言語の構造と使用を研究します。認知神経心理学は、言語の構成要素がどのように処理されるかを説明するために、言語理論をそのモデルに統合します。
-                </p>
-                <p class="text-gray-700 mb-4">
-                    特に、認知言語学は文の構造の背後にある「認知的動機づけ」を探求し、抽象的な数学的メカニズムに焦点を当てる生成文法とは対照的です。認知神経心理学は、根底にある精神的プロセスを理解しようとする点で、認知言語学の視点とより密接に連携しています。
-                </p>
-                <p class="text-gray-700">
-                    認知神経心理学の学際的な性質（神経学、認知心理学、言語学の統合）は、その核となる強みです。この「異分野間の交流」は、単一の分野では提供できない、言語障害に対するより豊かで包括的な理解を可能にします。これはまた、ある分野（例えば、認知心理学における活性化拡散理論の理解）における進歩が、病理学的プロセスの理解に直接影響を与え、洗練させることを意味します。この統合された視点は、生物学的基盤と抽象的な認知機能の両方を考慮に入れるため、より正確な診断と介入につながるのです。
-                </p>
-            </div>
-
-            <div class="card mt-8">
-                <h3 class="text-xl font-bold mb-4">2.1. 「ボックス・アンド・アロー」パラダイムとその進化</h3>
-                <p class="text-gray-700 mb-4">
-                    古典的な認知神経心理学的アプローチは、「ボックス・アンド・アロー」図によって特徴づけられます。これらの図は、異なる処理段階（ボックス）とそれらを結ぶ経路（アロー）を表し、失語症学者の間では広く知られています。しかし、<span class="bg-yellow-200">近年の理論的革新は、これらの古典的なモデルを超え、「表象よりもプロセスを重視する、より動的な語産生の見方」へと発展しています。</span><span class="bg-yellow-200">動的なモデルの例としては、語産生の活性化拡散理論が挙げられます。</span>これは、静的な構成要素から、情報の能動的な流れと相互作用への重点の移行を示しています。
-                </p>
-                <p class="text-gray-700 mb-4">
-                    これには、「カスケード」（語彙単位が音韻単位を即座に、かつ活性化レベルに比例して活性化する）や「フィードバック」（音韻単位がそれらと接続された語彙単位を活性化する）といった概念が含まれ、この動的な進化を代表するものです。
-                </p>
-                <p class="text-gray-700">
-                    この静的な「表象」から動的な「プロセス」への移行は極めて重要です。これは、障害が単なる「壊れたボックス」ではなく、情報の*流れ*や*相互作用*の破綻であることを示唆しています。これにより、単純な機能の「オン/オフ」という見方を超え、変動する症状や微妙な欠陥をより良く説明することが可能になります。例えば、カスケードの障害は、単語が部分的に活性化されても完全に検索されない理由を説明できます。この変化は、実際の言語行動（例えば、意味性錯語のような部分的な誤りやニアミス）をより正確にモデル化することを可能にします。動的なモデルは、活性化レベルが不十分であったり、誤った方向に向けられたりすることで、完全な破綻だけでなく、様々な範囲の誤りが生じることを説明できます。これは、障害の*性質*をどのように概念化し、ひいては介入をどのように設計するかに直接影響を及ぼします。
-                </p>
-
-                <h3 class="text-xl font-bold mt-8 mb-4">2.2. 言語情報処理モデルの構成要素と特徴</h3>
-                <p class="text-gray-700 mb-4">
-                    言語情報処理モデルは、日本語の言語処理にも適用され、臨床現場で単語レベルの言語機能を理解するためにしばしば用いられます。
-                </p>
-                <p class="text-gray-700 mb-4">
-                    このモデルの主要な構成要素は以下の通りです。
-                </p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
-                    <li><strong>意味システム (Semantic System):</strong> 単語の意味が貯蔵されている場所です。例えば、「犬」の絵を見た際に、「ペットの代表」「散歩に行く」「尻尾を振る」「ワンワンと鳴く」といった関連情報が想起されるのは、この意味システムが機能しているためです。このシステムは「心像性」（イメージのしやすさ）と関連しており、意味システムが保たれていれば、心像性の高い単語ほど処理が容易になります。</li>
-                    <li><strong>入力語彙辞書 (Input Lexical Dictionary):</strong> 音声または書字による単語の認識に関与します。</li>
-                    <li><strong>出力語彙辞書 (Output Lexical Dictionary):</strong> 発話のための単語の一般的な枠組み（モーラ数、イントネーション、漢字の概形、語頭音など）を格納しています。</li>
-                    <li><strong>意味照合 (Semantic Matching):</strong> 出力語彙辞書と意味システムを繋ぐ処理です。モデルによっては、読解と聴理解で異なるルートが存在するとされます。ここに障害がある場合、「語義聾」と呼ばれます。語義聾は、意味システム自体は保たれているものの、入力語彙辞書から意味システムへのアクセスが障害されている状態を指します。</li>
-                    <li><strong>語彙選択 (Lexical Selection):</strong> 出力語彙辞書内の一般的な枠組みの中から適切な単語を選択するプロセスです。</li>
-                </ul>
-                <p class="text-gray-700 mb-4">
-                    これらのモデルにおける「出力語彙辞書障害」と「語彙選択障害」の明確な区別は、その診断基準の洗練性を示しています。この区別は、「頻度効果」の有無に基づいて行われます。出力語彙辞書障害では、高頻度の単語ほど正答率が高く、低頻度の単語ほど正答率が低いという頻度効果が観察され、誤りの一貫性も見られます。一方、語彙選択障害では、頻度効果は観察されず、誤りにも一貫性がない。これは、語彙選択が「辞書を引く」ようなプロセスであり、健常者では迅速かつ正確ですが、障害がある場合は高頻度語と低頻度語の両方に等しく影響が及ぶためです。
-                </p>
-                <p class="text-gray-700">
-                    この頻度効果の有無に基づく診断基準は、治療に直接的な影響を与えます。もし患者が出力語彙辞書障害であれば、高頻度語から訓練を開始することが効果的である可能性があります。しかし、語彙選択障害であれば、単語の頻度は関係ないため、異なる治療的焦点（例えば、「辞書を引く」プロセス自体を改善すること）が必要となります。症状パターン（頻度効果）から根底にある欠陥（特定の障害タイプ）へのこの因果関係の連鎖は、認知神経心理学の根幹をなすものです。これは、評価が破綻の正確な性質を特定できることを意味し、高度に個別化された効果的な治療へと繋がります。
-                </p>
-                <h3 class="text-xl font-bold mt-8 mb-4">表1：認知神経心理学的言語処理モデルの主要構成要素</h3>
-                <div class="overflow-x-auto">
-                    <table class="inserted-table text-gray-700">
-                        <thead>
-                            <tr>
-                                <th>構成要素</th>
-                                <th>機能</th>
-                                <th>関連する障害/症状（障害時）</th>
-                                <th>相互接続</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>意味システム</strong></td>
-                                <td>単語の意味情報を貯蔵・想起。心像性と関連。</td>
-                                <td>呼称・聴理解の困難、読解・聴理解の低下、心像性の高低による正答率の差、カテゴリー特異性。</td>
-                                <td>入力語彙辞書、出力語彙辞書、意味照合と接続。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>入力語彙辞書</strong></td>
-                                <td>音声または書字による単語の認知・実在語の理解。</td>
-                                <td>語義聾（意味照合の障害）では音韻照合・語彙照合は保たれる。</td>
-                                <td>意味システム、音韻照合と接続。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>出力語彙辞書</strong></td>
-                                <td>発話のための単語の一般的な枠組み（モーラ数、イントネーション、漢字の概形、語頭音など）を格納しています。</td>
-                                <td>頻度効果（高頻度語の正答率が高い）、誤りの一貫性。</td>
-                                <td>意味システム、語彙選択と接続。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>意味照合</strong></td>
-                                <td>入力語彙辞書から意味システムへのアクセス、または出力語彙辞書から意味システムへの接続。</td>
-                                <td>語義聾（意味システムは保たれるがアクセス障害）、読解と聴理解で意味システムへの到達に差が生じる。</td>
-                                <td>入力語彙辞書、出力語彙辞書、意味システムを繋ぐ。</td>
-                            </tr>
-                            <tr>
-                                <td><strong>語彙選択</strong></td>
-                                <td>出力語彙辞書内の枠組みから適切な単語を選択するプロセス。</td>
-                                <td>無反応、舌先現象、迂言、意味性錯語、形式性錯語、頻度効果なし、誤りの一貫性なし。</td>
-                                <td>出力語彙辞書と接続。</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インフォグラフィック：失語症と意味ネットワークモデル</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            background-color: #f0f4f8;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 320px;
-            max-height: 400px;
-        }
+        /* Inserted Styles */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -422,469 +155,835 @@
         .custom-table tr:nth-child(even) {
             background-color: #f8fcfd;
         }
+        /* Style for the table within the original inserted text content */
+        .inserted-table th, .inserted-table td {
+            border: 1px solid #e2e8f0;
+            padding: 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+        .inserted-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+        }
+        .inserted-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Styles for flowchart */
+        .flowchart-step {
+            border-left-width: 6px;
+            border-style: solid;
+        }
+        .flowchart-arrow {
+            color: #4a5568;
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-[#3C5A7D]">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
 
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#000428] mb-2">脳の言葉の地図</h1>
-            <p class="text-lg md:text-xl text-[#004e92]">失語症と意味ネットワークモデルの理解</p>
+        <header class="text-center my-8 md:my-12">
+            <h1 class="text-3xl md:text-5xl font-bold text-[#00A6ED] tracking-tight">失語症リハビリテーションの進化</h1>
+            <p class="text-lg md:text-xl mt-4 text-[#3C5A7D]">認知神経心理学的アプローチがもたらしたこの10年の変革</p>
         </header>
 
-        <section id="introduction" class="mb-16">
-            <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-[#004e92] mb-4 text-center">意味ネットワークモデルとは？</h2>
-                <p class="text-base md:text-lg text-center leading-relaxed">
-                    私たちの知識は、バラバラに記憶されているわけではありません。「概念」という点の集まりが、関連性の強さに応じて「リンク」で結ばれた、巨大なネットワークとして脳内に存在します。これが意味ネットワークモデルです。失語症では、この言葉の地図の一部が損傷したり、道筋がうまく機能しなくなったりすることで、言葉の想起や理解に困難が生じると考えられています。
+        <main>
+            <section id="what-is-aphasia" class="mt-8">
+                <h2 class="section-title">失語症とは何か？</h2>
+                <p class="section-intro">
+                    失語症は脳損傷により「聞く・話す・読む・書く」能力が障害される状態です。記憶や判断力は保たれる点で認知症とは異なります。
                 </p>
-            </div>
-        </section>
+            </section>
 
-        <section id="activation" class="mb-16">
-             <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-[#004e92] mb-6 text-center">活性化拡散：思考はつながる</h2>
-                <p class="text-base md:text-lg text-center leading-relaxed mb-8">
-                    一つの概念が刺激されると、その「活性化」がリンクを伝って関連する概念へと波紋のように広がります。これが活性化拡散です。例えば「犬」という言葉を聞くと、関連の強い「吠える」や「散歩」といった概念が瞬時に思い浮かびます。
+            <section id="evaluation-process" class="mt-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #003f5c;">評価から訓練計画までの道のり</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">効果的なリハビリは、正確な評価から始まります。個別化された訓練計画は、診断、症状の把握、そして患者の状態に応じた動的な調整を経て策定されます。</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex flex-col md:flex-row items-stretch justify-between space-y-8 md:space-y-0 md:space-x-4">
+                        <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-blue-500">
+                            <h3 class="font-bold text-lg">① インテーク面接</h3>
+                            <p class="text-sm text-gray-600">主訴や生活環境を聴取し、信頼関係を構築します。</p>
+                        </div>
+                        <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
+                        <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-purple-500">
+                            <h3 class="font-bold text-lg">② 鑑別診断</h3>
+                            <p class="text-sm text-gray-600">失語症の有無・タイプ、合併症を特定します。（例：SLTA, WAB検査）</p>
+                        </div>
+                        <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
+                        <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-pink-500">
+                            <h3 class="font-bold text-lg">③ 掘り下げ検査</h3>
+                            <p class="text-sm text-gray-600">言語・非言語能力を詳細に把握し、強みと弱みを分析します。</p>
+                        </div>
+                        <div class="text-4xl font-light flowchart-arrow transform md:rotate-0 rotate-90 mx-auto">→</div>
+                        <div class="flowchart-step flex-1 p-4 rounded-lg bg-gray-50 border-orange-500">
+                            <h3 class="font-bold text-lg">④ 訓練計画立案</h3>
+                            <p class="text-sm text-gray-600">評価に基づき、個別化された目標と計画を策定・共有します。</p>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="text-xl font-bold mb-4 mt-8 text-center">診断パラダイムの変遷と高度な評価</h3>
+                <p class="text-gray-700 text-center mx-auto max-w-2xl">
+                    過去10年間で、失語症の評価は純粋な神経学的分類から、より洗練された認知心理学的分類へと進化しました。以前は脳損傷部位に基づく分類が多かったですが、現在は脳損傷が正常な認知機能のどの構成要素に影響を与えているかを特定することに重点が置かれています。特に日本語では、漢字と仮名という二つの文字言語体系の解離に着目した評価が重要視されます。TLPA名詞表出検査のように、単語の頻度や心像性を調整して評価することで、出力語彙辞書障害や語彙選択障害といった具体的な処理欠陥を識別可能になりました。評価対象も名詞だけでなく動詞にも拡大され、より包括的な理解を目指しています。
                 </p>
-                <div class="table-container">
-                    <table class="custom-table">
-                        <thead>
+            </section>
+
+            <section id="introduction">
+                <h2 class="section-title">認知神経心理学的アプローチ：失語症理解の新たな枠組み</h2>
+                <p class="section-intro">
+                    認知神経心理学は、脳損傷患者に観察される認知機能の障害を通じて、正常な認知機能を解明する学際的分野です。失語症においては、単なる症状の羅列ではなく、その背後にある言語情報処理のどの特定プロセスに破綻が生じたのかを詳細に分析することで、より的確な評価と介入を可能にします。このアプローチは、神経学的な局所化と認知心理学的な情報処理モデルを結びつけ、なぜ特定の症状が現れるのかという「原因」に焦点を当てます。
+                </p>
+            </section>
+
+            <section id="shift">
+                <h2 class="section-title">アプローチの根本的シフト：症候群分類から機能的メカニズムの特定へ</h2>
+                <p class="section-intro">この10年で、失語症リハビリは「どの失語症タイプか」という大枠の分類から、「どの言語機能が、なぜ損なわれているのか」という、個人に焦点を当てた精密なアプローチへと劇的に変化しました。</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card border-t-4 border-[#F2545B]">
+                        <h3 class="text-xl font-bold mb-4">10年前のアプローチ (Then)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>診断:</strong> 標準検査に基づく症候群分類 (例: ブローカ失語)</li>
+                            <li><strong>焦点:</strong> 「何を言えないか」という現象の観察</li>
+                            <li><strong>訓練:</strong> タイプに応じた比較的汎用的な刺激法・行動療法</li>
+                            <li><strong>役割:</strong> セラピスト主導のセッション</li>
+                        </ul>
+                    </div>
+                    <div class="card border-t-4 border-[#72C546]">
+                        <h3 class="text-xl font-bold mb-4">現在のアプローチ (Now)</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>診断:</strong> 機能的障害メカニズムの特定 (例: 出力音韻辞書の障害)</li>
+                            <li><strong>焦点:</strong> 「なぜ言えないか」という原因プロセスの分析</li>
+                            <li><strong>訓練:</strong> 障害メカニズムに直結したターゲット訓練</li>
+                            <li><strong>役割:</strong> テクノロジー活用と多職種・家族参加型モデル</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="detailed-cognitive-neuropsychology-text-insert" class="mt-16">
+                <h2 class="section-title">詳細：言語情報処理への認知神経心理学的アプローチ</h2>
+                <p class="section-intro">
+                    ここでは、失語症を理解するための認知神経心理学的アプローチの理論的背景と、その進化について詳細に解説します。
+                </p>
+
+                <div class="card">
+                    <h3 class="text-xl font-bold mb-4">1.1. 定義と核となる原則</h3>
+                    <p class="text-gray-700 mb-4">
+                        認知神経心理学は、脳損傷患者に観察される認知機能の障害を研究することにより、正常な認知機能を理解することを目的とした学際的な分野です。このアプローチは、脳病変の神経学的観察と、正常な認知に関する認知心理学のモデルとの間の橋渡しを行います。
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        従来の神経学が脳の局所解剖学的部位に基づいて知識の障害を記述するのに対し、認知神経心理学は、正常な認知機能の理論的モデルにおける一つまたは複数の構成要素の障害という観点から、患者の行動を説明しようと試みます。この分野では、入力、出力、および様々な処理段階を含むコンピュータプログラムのような情報処理モデルを用いて、脳損傷が特定の症状をどのように引き起こすかを説明します。
+                    </p>
+                    <p class="text-gray-700">
+                        このアプローチは、言語障害を単に脳損傷の症状としてではなく、特定の識別可能な認知プロセスの破綻として捉える枠組みを提供します。純粋な解剖学的記述から機能的な処理記述への転換は、特定の症状が*なぜ*現れるのかについて、より詳細な理解を可能にします。特定の処理モジュールが障害されている場合、それは特定の誤りパターンを予測し、病変の正確な位置に関わらず、その病変が*原因*であると定義されます。この機能的説明は、解剖学的相関関係を超え、より的を絞った評価と介入へと繋がります。
+                    </p>
+
+                    <h3 class="text-xl font-bold mt-8 mb-4">1.2. 関連分野（認知心理学、言語学）との区別</h3>
+                    <p class="text-gray-700 mb-4">
+                        認知神経心理学は、認知心理学と言語学という二つの主要な学問分野からその理論的基盤を導き出しています。認知心理学は、健常者における知識の構造を解明することに焦点を当てるのに対し、認知神経心理学はこれらのモデルを適用して、障害された認知を理解します。一方、言語学は統語論、意味論、語用論を含む言語の構造と使用を研究します。認知神経心理学は、言語の構成要素がどのように処理されるかを説明するために、言語理論をそのモデルに統合します。
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        特に、認知言語学は文の構造の背後にある「認知的動機づけ」を探求し、抽象的な数学的メカニズムに焦点を当てる生成文法とは対照的です。認知神経心理学は、根底にある精神的プロセスを理解しようとする点で、認知言語学の視点とより密接に連携しています。
+                    </p>
+                    <p class="text-gray-700">
+                        認知神経心理学の学際的な性質（神経学、認知心理学、言語学の統合）は、その核となる強みです。この「異分野間の交流」は、単一の分野では提供できない、言語障害に対するより豊かで包括的な理解を可能にします。これはまた、ある分野（例えば、認知心理学における活性化拡散理論の理解）における進歩が、病理学的プロセスの理解に直接影響を与え、洗練させることを意味します。この統合された視点は、生物学的基盤と抽象的な認知機能の両方を考慮に入れるため、より正確な診断と介入につながるのです。
+                    </p>
+                </div>
+
+                <div class="card mt-8">
+                    <h3 class="text-xl font-bold mb-4">2.1. 「ボックス・アンド・アロー」パラダイムとその進化</h3>
+                    <p class="text-gray-700 mb-4">
+                        古典的な認知神経心理学的アプローチは、「ボックス・アンド・アロー」図によって特徴づけられます。これらの図は、異なる処理段階（ボックス）とそれらを結ぶ経路（アロー）を表し、失語症学者の間では広く知られています。しかし、<span class="bg-yellow-100 rounded px-1">近年の理論的革新は、これらの古典的なモデルを超え、「表象よりもプロセスを重視する、より動的な語産生の見方」へと発展しています。</span>これは、静的な構成要素から、情報の能動的な流れと相互作用への重点の移行を示しています。
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        <span class="bg-yellow-100 rounded px-1">動的なモデルの例としては、語産生の活性化拡散理論が挙げられます。</span>これには、「カスケード」（語彙単位が音韻単位を即座に、かつ活性化レベルに比例して活性化する）や「フィードバック」（音韻単位がそれらと接続された語彙単位を活性化する）といった概念が含まれ、この動的な進化を代表するものです。
+                    </p>
+                    <p class="text-gray-700">
+                        この静的な「表象」から動的な「プロセス」への移行は極めて重要です。これは、障害が単なる「壊れたボックス」ではなく、情報の*流れ*や*相互作用*の破綻であることを示唆しています。これにより、単純な機能の「オン/オフ」という見方を超え、変動する症状や微妙な欠陥をより良く説明することが可能になります。例えば、カスケードの障害は、単語が部分的に活性化されても完全に検索されない理由を説明できます。この変化は、実際の言語行動（例えば、意味性錯語のような部分的な誤りやニアミス）をより正確にモデル化することを可能にします。動的なモデルは、活性化レベルが不十分であったり、誤った方向に向けられたりすることで、完全な破綻だけでなく、様々な範囲の誤りが生じることを説明できます。これは、障害の*性質*をどのように概念化し、ひいては介入をどのように設計するかに直接影響を及ぼします。
+                    </p>
+
+                    <h3 class="text-xl font-bold mt-8 mb-4">2.2. 言語情報処理モデルの構成要素と特徴</h3>
+                    <p class="text-gray-700 mb-4">
+                        言語情報処理モデルは、日本語の言語処理にも適用され、臨床現場で単語レベルの言語機能を理解するためにしばしば用いられます。
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        このモデルの主要な構成要素は以下の通りです。
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li><strong>意味システム (Semantic System):</strong> 単語の意味が貯蔵されている場所です。例えば、「犬」の絵を見た際に、「ペットの代表」「散歩に行く」「尻尾を振る」「ワンワンと鳴く」といった関連情報が想起されるのは、この意味システムが機能しているためです。このシステムは「心像性」（イメージのしやすさ）と関連しており、意味システムが保たれていれば、心像性の高い単語ほど処理が容易になります。</li>
+                        <li><strong>入力語彙辞書 (Input Lexical Dictionary):</strong> 音声または書字による単語の認識に関与します。</li>
+                        <li><strong>出力語彙辞書 (Output Lexical Dictionary):</strong> 発話のための単語の一般的な枠組み（モーラ数、イントネーション、漢字の概形、語頭音など）を格納しています。</li>
+                        <li><strong>意味照合 (Semantic Matching):</strong> 出力語彙辞書と意味システムを繋ぐ処理です。モデルによっては、読解と聴理解で異なるルートが存在するとされます。ここに障害がある場合、「語義聾」と呼ばれます。語義聾は、意味システム自体は保たれているものの、入力語彙辞書から意味システムへのアクセスが障害されている状態を指します。</li>
+                        <li><strong>語彙選択 (Lexical Selection):</strong> 出力語彙辞書内の一般的な枠組みの中から適切な単語を選択するプロセスです。</li>
+                    </ul>
+                    <p class="text-gray-700 mb-4">
+                        これらのモデルにおける「出力語彙辞書障害」と「語彙選択障害」の明確な区別は、その診断基準の洗練性を示しています。この区別は、「頻度効果」の有無に基づいて行われます。出力語彙辞書障害では、高頻度の単語ほど正答率が高く、低頻度の単語ほど正答率が低いという頻度効果が観察され、誤りの一貫性も見られます。一方、語彙選択障害では、頻度効果は観察されず、誤りにも一貫性がない。これは、語彙選択が「辞書を引く」ようなプロセスであり、健常者では迅速かつ正確ですが、障害がある場合は高頻度語と低頻度語の両方に等しく影響が及ぶためです。
+                    </p>
+                    <p class="text-gray-700">
+                        この頻度効果の有無に基づく診断基準は、治療に直接的な影響を与えます。もし患者が出力語彙辞書障害であれば、高頻度語から訓練を開始することが効果的である可能性があります。しかし、語彙選択障害であれば、単語の頻度は関係ないため、異なる治療的焦点（例えば、「辞書を引く」プロセス自体を改善すること）が必要となります。症状パターン（頻度効果）から根底にある欠陥（特定の障害タイプ）へのこの因果関係の連鎖は、認知神経心理学の根幹をなすものです。これは、評価が破綻の正確な性質を特定できることを意味し、高度に個別化された効果的な治療へと繋がります。
+                    </p>
+                    <h3 class="text-xl font-bold mt-8 mb-4">表1：認知神経心理学的言語処理モデルの主要構成要素</h3>
+                    <div class="overflow-x-auto">
+                        <table class="inserted-table text-gray-700">
+                            <thead>
+                                <tr>
+                                    <th>構成要素</th>
+                                    <th>機能</th>
+                                    <th>関連する障害/症状（障害時）</th>
+                                    <th>相互接続</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>意味システム</strong></td>
+                                    <td>単語の意味情報を貯蔵・想起。心像性と関連。</td>
+                                    <td>呼称・聴理解の困難、読解・聴理解の低下、心像性の高低による正答率の差、カテゴリー特異性。</td>
+                                    <td>入力語彙辞書、出力語彙辞書、意味照合と接続。</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>入力語彙辞書</strong></td>
+                                    <td>音声または書字による単語の認知・実在語の理解。</td>
+                                    <td>語義聾（意味照合の障害）では音韻照合・語彙照合は保たれる。</td>
+                                    <td>意味システム、音韻照合と接続。</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>出力語彙辞書</strong></td>
+                                    <td>発話のための単語の一般的な枠組み（モーラ数、イントネーション、漢字の概形、語頭音など）を格納。</td>
+                                    <td>頻度効果（高頻度語の正答率が高い）、誤りの一貫性。</td>
+                                    <td>意味システム、語彙選択と接続。</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>意味照合</strong></td>
+                                    <td>入力語彙辞書から意味システムへのアクセス、または出力語彙辞書から意味システムへの接続。</td>
+                                    <td>語義聾（意味システムは保たれるがアクセス障害）、読解と聴理解で意味システムへの到達に差が生じる。</td>
+                                    <td>入力語彙辞書、出力語彙辞書、意味システムを繋ぐ。</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>語彙選択</strong></td>
+                                    <td>出力語彙辞書内の枠組みから適切な単語を選択するプロセス。</td>
+                                    <td>無反応、舌先現象、迂言、意味性錯語、形式性錯語、頻度効果なし、誤りの一貫性なし。</td>
+                                    <td>出力語彙辞書と接続。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card mt-8">
+                    <h3 class="text-xl font-bold mb-4">3.1. 診断パラダイムの変遷</h3>
+                    <p class="text-gray-700 mb-4">
+                        過去10年間で、失語症の評価は、純粋な神経学的分類から、より洗練された認知心理学的分類へと進化してきました。以前は、脳の損傷部位に基づいて失読症（読みの障害）や失書症（書字の障害）が分類されることが多かったですが、現在は、脳損傷が正常な認知機能のどの構成要素に影響を与えているかを特定することに重点が置かれています。例えば、失読・失書の分類には神経学的分類と認知心理学的分類が知られており、神経学的分類では失語性失読・失書と非失語性（孤立性）失読・失書に分けられますが、分類については定説がない状態です。このことは、症状の背後にある認知プロセスを理解することの重要性が増していることを示唆しています。
+                    </p>
+                    <p class="text-gray-700">
+                        特に日本語においては、漢字と仮名という二つの文字言語体系が存在するため、それぞれの読み書き障害の程度に解離が生じることが知られており、これは欧米の研究者からも関心を集めています。左角回損傷が失読失書を引き起こすことが知られているほか、日本語では左側頭葉後下部病変により仮名の読み書きには支障がなく漢字の読み書きのみに障害が生じる漢字の失読失書も報告されています。このような言語固有の特性が、評価の複雑性と精密化を促しています。
+                    </p>
+                </div>
+
+                <div class="card mt-8">
+                    <h3 class="text-xl font-bold mb-4">4.1. モデル駆動型治療への進化</h3>
+                    <p class="text-gray-700 mb-4">
+                        過去10年間で、失語症の訓練は、認知神経心理学的評価によって特定された特定の欠陥に直接対処する、より的を絞ったモデル駆動型治療へと大きく進化しています。このアプローチは、失語症の根本的なメカニズムを理解し、セラピーの決定、効果予測、検証可能な評価と介入の知見を積み重ねるための手法を提供します。
+                    </p>
+                    <p class="text-gray-700">
+                        この進化は、治療効果の「頑健な評価」を行うことの重要性への認識の高まりにも表れています。臨床現場や研究環境において、介入の効果を客観的かつ体系的に評価する手法が重視されるようになり、これにより、よりエビデンスに基づいた実践が可能となっています。
+                    </p>
+
+                    <h3 class="text-xl font-bold mt-8 mb-4">4.2. 特定の訓練方法論</h3>
+                    <p class="text-gray-700 mb-4">
+                        言語情報処理モデルに基づく訓練方法は、特に語彙選択障害に対して、多様かつ具体的なアプローチを提供しています。これらの方法は、障害の性質に応じて異なる戦略を採用している点が特徴です。
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li><strong>漢字選択課題:</strong> 患者に絵を見せ、対応する漢字を選択させる訓練です。デジタル教材を用いることで、指差しのみの応答も可能となり、重度の言語表出困難を持つ患者にも適用しやすい利点があります。</li>
+                        <li><strong>語形提示意味セラピー:</strong> 単語の語形（音声または文字）を提示し、患者に6つの選択肢（ターゲット語1つ、同カテゴリー語3つ、無関連語2つ）から対応するイラストを選択させるものです。研究では、3日間で有意な改善が見られたものの、その効果はそれ以上維持されないことが示唆されています。訓練ステップには、音声単語と絵のマッチング、文字単語と絵のマッチング、意味判断（例：「これは果物ですか？」とリンゴの絵を見せて尋ねる）が含まれます。</li>
+                        <li><strong>定義文意味セラピー:</strong> 定義文を提示し、それに合う絵をマッチングさせる方法です。海外の文献では、訓練された単語の呼称には有意な改善が見られなかったものの、絵の説明課題における情報伝達能力の改善が報告されています。訓練ステップは語形提示と類似しており、単語の代わりに定義文を用います。無料の教育ウェブサイト「ことばの小箱」が定義文の教材として推奨されています。</li>
+                        <li><strong>迂言を用いた呼称訓練:</strong> 呼称が成功するまで迂言を継続的に促す訓練方法です。海外の文献では、訓練されていない単語にもわずかながら有意な改善が見られ、誤りの質が変化した（無関連な誤りの減少、視覚的・意味的誤りの増加）と報告されています。迂言表現自体は治療後に増加しなかったが、迂言が意味を活性化し、語彙表象へのアクセスを改善したと仮説が立てられています。</li>
+                        <li><strong>音韻セラピーでの呼称訓練:</strong> 患者自身がモーラ数や語頭音を考えて呼称を促す訓練です。海外の文献では、訓練された単語と訓練されていない単語の両方で有意な改善が報告され、効果が8週間維持されたという。家族からは会話がしやすくなったとの報告があり、患者は話すことへの自信が増したと述べています。この訓練は、自己ヒント能力が改善しなくても、語彙選択能力の向上により呼称能力が改善したと結論付けられています。訓練は4段階で構成され、絵を見てモーラ数を指差す、語頭音を選択する、自己ヒントとして語頭音を利用して呼称に導く、といったステップが含まれます。</li>
+                    </ul>
+                    <p class="text-gray-700">
+                        これらの訓練方法論は、日本語の言語情報処理モデルに基づいた失語症の障害メカニズムと訓練の考え方について現在も活発に発展・洗練されていることを示しています。
+                    </p>
+                </div>
+            </section>
+            
+            <section id="semantic-network-section" class="mt-16 text-gray-800">
+                <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+                    <header class="text-center mb-12">
+                        <h2 class="text-4xl md:text-5xl font-bold text-[#000428] mb-2">脳の言葉の地図</h2>
+                        <p class="text-lg md:text-xl text-[#004e92]">失語症と意味ネットワークモデルの理解</p>
+                    </header>
+
+                    <section id="introduction-inner" class="mb-16">
+                        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                            <h3 class="text-2xl font-bold text-[#004e92] mb-4 text-center">意味ネットワークモデルとは？</h3>
+                            <p class="text-base md:text-lg text-center leading-relaxed">
+                                私たちの知識は、バラバラに記憶されているわけではありません。「概念」という点の集まりが、関連性の強さに応じて「リンク」で結ばれた、巨大なネットワークとして脳内に存在します。これが意味ネットワークモデルです。失語症では、この言葉の地図の一部が損傷したり、道筋がうまく機能しなくなったりすることで、言葉の想起や理解に困難が生じると考えられています。
+                            </p>
+                        </div>
+                    </section>
+
+                    <section id="activation" class="mb-16">
+                         <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                            <h3 class="text-2xl font-bold text-[#004e92] mb-6 text-center">活性化拡散：思考はつながる</h3>
+                            <p class="text-base md:text-lg text-center leading-relaxed mb-8">
+                                一つの概念が刺激されると、その「活性化」がリンクを伝って関連する概念へと波紋のように広がります。これが活性化拡散です。例えば「犬」という言葉を聞くと、関連の強い「吠える」や「散歩」といった概念が瞬時に思い浮かびます。
+                            </p>
+                            <div class="table-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>刺激された概念 (起点)</th>
+                                            <th>活性化が拡散する関連概念の例</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>犬</td>
+                                            <td>動物、四足、吠える、散歩、しっぽ</td>
+                                        </tr>
+                                        <tr>
+                                            <td>医者</td>
+                                            <td>看護師、病院、薬、患者</td>
+                                        </tr>
+                                        <tr>
+                                            <td>鳥</td>
+                                            <td>飛ぶ、羽、巣、さえずる</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                             <p class="text-sm text-center text-gray-500 mt-4">
+                                 失語症では、この活性化が弱まったり、途切れたりすることで、関連語の想起が困難になります。
+                             </p>
+                         </div>
+                    </section>
+
+                    <section id="phenomena" class="mb-16">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">典型性効果</h3>
+                                <p class="text-base leading-relaxed mb-4">
+                                    「スズメは鳥？」と聞かれると即答できますが、「ダチョウは鳥？」と聞かれると少し考えてしまいます。カテゴリーを代表する典型的な例ほど、判断が速くなる現象です。これは、典型例ほどカテゴリーと強く、短く結びついているためです。
+                                </p>
+                                <div class="chart-container">
+                                    <canvas id="typicalityChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-lg shadow-lg p-6">
+                                <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">プライミング効果</h3>
+                                <p class="text-base leading-relaxed mb-4">
+                                    「医者」という言葉を見た後では、関連する「看護師」という言葉の認識が速くなります。先立つ情報（プライム）が、後の情報（ターゲット）の処理を助ける現象で、活性化拡散によって説明されます。
+                                </p>
+                                <div class="chart-container">
+                                    <canvas id="primingChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="comparison" class="mb-16">
+                         <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                            <h3 class="text-2xl font-bold text-[#004e92] mb-6 text-center">モデルの進化：階層からネットワークへ</h3>
+                             <p class="text-base md:text-lg text-center leading-relaxed mb-8">
+                                 初期の階層モデルは、情報を整理棚のように厳格な階層で捉えていましたが、典型性効果などを説明できませんでした。より柔軟な意味ネットワークモデルは、これらの現象をうまく説明できます。
+                             </p>
+                            <div class="table-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>特徴・要素</th>
+                                            <th>階層ネットワークモデル (旧)</th>
+                                            <th>意味ネットワークモデル (現)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>構造</strong></td>
+                                            <td>厳密な階層構造（上位・下位概念）</td>
+                                            <td>意味的関連性の強さに応じた柔軟なリンク</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>情報の継承</strong></td>
+                                            <td>上位概念の特徴が下位概念に継承される</td>
+                                            <td>厳密な継承はない（リンクの強さや距離で表現）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>典型性効果の説明</strong></td>
+                                            <td>説明が困難</td>
+                                            <td>活性化拡散で説明可能（強く、速く伝わる）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>プライミング効果の説明</strong></td>
+                                            <td>説明が困難</td>
+                                            <td>活性化拡散で説明可能（事前活性化）</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>失語症への適用</strong></td>
+                                            <td>構造的損傷に焦点を当てがち</td>
+                                            <td>連結性・活性化拡散の障害も考察できる</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                         </div>
+                    </section>
+                </div>
+            </section>
+
+            <section id="cognitive-model" class="mt-16">
+                <h2 class="section-title">言語処理の核心モデル</h2>
+                <p class="section-intro">
+                    言語が脳内でどのように処理されるかを示す「地図」の解像度が上がったことが、精密な評価を可能にしました。認知神経心理学のモデルは、言語処理の具体的な認知モジュールとその接続を可視化します。これにより、失語症の症状がどの処理段階の破綻によって生じるのかを推測し、個別化された介入へと繋げます。
+                </p>
+                <div class="card p-4 md:p-6 flex justify-center items-center overflow-x-auto">
+                    <div class="model-grid min-w-[700px] md:min-w-[800px] lg:min-w-[900px] xl:min-w-[1000px] mx-auto relative">
+                        <div class="model-cell col-start-7 row-start-1 row-end-2 flex-center">
+                            <div class="model-box">非言語的記号<br>の入力</div>
+                        </div>
+                        <div class="model-cell col-start-6 row-start-2 flex-center relative">
+                            <div class="model-box">形態認知</div>
+                            <div class="path-h w-4 absolute left-[-0.2rem] top-[50%] -translate-y-1/2" style="left: -1rem; width: calc(100% + 1rem);"></div>
+                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
+                            <div class="path-v h-4 absolute left-[50%] top-full translate-x-1/2"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-6 row-start-3 flex-center">
+                            <div class="model-box">意味記憶</div>
+                        </div>
+                        <div class="model-cell col-start-1 row-start-1 flex-center">
+                            <div class="model-box">文字入力</div>
+                        </div>
+                        <div class="model-cell col-start-2 row-start-1 flex-center">
+                            <span class="arrow-right-icon"></span>
+                        </div>
+                        <div class="model-cell col-start-3 row-start-1 flex-center">
+                            <div class="model-box">形態認知</div>
+                        </div>
+                        <div class="model-cell col-start-4 row-start-1 flex-center">
+                            <span class="arrow-right-icon"></span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-1 flex-center relative">
+                            <div class="model-box">入力文字辞書</div>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-4 row-start-1 flex-center relative">
+                            <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">形態照合</span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-2 flex-center relative">
+                            <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
+                        </div>
+                        <div class="model-cell col-start-1 row-start-3 flex-center">
+                            <div class="model-box">音声入力</div>
+                        </div>
+                        <div class="model-cell col-start-2 row-start-3 flex-center">
+                            <span class="arrow-right-icon"></span>
+                        </div>
+                        <div class="model-cell col-start-3 row-start-3 flex-center">
+                            <div class="model-box">音響分析</div>
+                        </div>
+                        <div class="model-cell col-start-4 row-start-3 flex-center">
+                            <span class="arrow-right-icon"></span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-3 flex-center relative">
+                            <div class="model-box">入力音韻辞書</div>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-4 row-start-3 flex-center relative">
+                             <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
+                        </div>
+                        <div class="model-cell col-start-6 row-start-2 flex-center relative">
+                            <div class="model-box bg-red-100 border-red-400 w-full h-full flex items-center justify-center">意味システム</div>
+                            <span class="arrow-right-icon absolute-arrow-r"></span>
+                            <span class="arrow-text absolute right-[-0.5rem] top-[-0.8rem]" style="transform: rotate(0deg);">意味照合<br>(decoding)</span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-2 flex-center relative">
+                            <div class="model-box">入力語彙辞書</div>
+                             <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙照合</span>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-4 flex-center relative">
+                            <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙選択</span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-5 flex-center relative">
+                            <div class="model-box">出力語彙辞書</div>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                            <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">語彙選択</span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-6 flex-center relative">
+                            <div class="model-box">出力音韻辞書</div>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                            <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">音韻選択</span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-7 flex-center relative">
+                            <div class="model-box">音韻配列<br>(音韻出力バッファ)</div>
+                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
+                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-8 flex-center relative">
+                            <div class="model-box">構音運動プログラム</div>
+                            <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
+                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-5 row-start-9 flex-center relative">
+                            <div class="model-box">書字運動プログラム</div>
+                            <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
+                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
+                        </div>
+                        <div class="model-cell col-start-6 row-start-8 flex-center">
+                            <div class="model-box">音声表出</div>
+                        </div>
+                        <div class="model-cell col-start-6 row-start-9 flex-center">
+                            <div class="model-box">文字表出</div>
+                        </div>
+                        <div class="absolute" style="left: calc(33.33% + 1rem); top: 18%;">
+                            <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
+                            <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
+                            <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">語彙照合</span>
+                        </div>
+                        <div class="absolute" style="left: calc(33.33% + 1rem); top: 38%;">
+                            <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
+                            <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
+                            <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">音韻照合</span>
+                        </div>
+                        <div class="absolute" style="left: calc(85.7% - 0.5rem); top: 12%;">
+                            <div class="path-v h-[3rem] w-[1px] bg-[#6b7280]"></div>
+                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 50%;">
+                            <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
+                            <span class="path-arrow-right absolute right-0"></span>
+                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">語彙選択 (encoding)</span>
+                        </div>
+                        <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 20%;">
+                            <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
+                            <span class="path-arrow-right absolute right-0"></span>
+                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">意味照合 (decoding)</span>
+                        </div>
+                        <div class="model-cell col-start-3 row-start-7 flex-center relative">
+                            <div class="model-box">モーラ分解・抽出</div>
+                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">音韻選択</span>
+                        </div>
+                         <div class="model-cell col-start-3 row-start-8 flex-center relative">
+                            <div class="model-box">文字選択</div>
+                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">文字選択</span>
+                        </div>
+                        <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
+                             <div class="path-h w-4 bg-[#6b7280]"></div>
+                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
+                        </div>
+                         <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
+                            <div class="path-h w-4 bg-[#6b7280]"></div>
+                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1.5rem);">
+                            <div class="path-h w-[1rem] bg-[#6b7280]"></div>
+                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
+                            <div class="path-h w-4 bg-[#6b7280]"></div>
+                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
+                            <div class="path-h w-4 bg-[#6b7280]"></div>
+                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem);">
+                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
+                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(55.5% - 1rem);">
+                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
+                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(66.6% - 1rem);">
+                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
+                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
+                        </div>
+                        <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 0.5rem); height: 1rem; width: 1px; background-color: #6b7280;"></div>
+                        <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 1.5rem); height: 1px; width: 1rem; background-color: #6b7280;"></div>
+                        <span class="path-arrow-right absolute" style="left: calc(71.4% + 0.2rem + 1rem); top: calc(11.1% + 1.5rem - 3px);"></span>
+                    </div>
+                    <p class="text-xs text-center text-gray-500 mt-4">言語情報処理モデル（基本形）を基に構成。各ボックス（処理段階）や矢印（情報の流れ）のどこに問題があるかを特定します。</p>
+                </div>
+            </section>
+
+            <section id="training-mapping-section" class="mt-16">
+                <h2 class="section-title">障害メカニズムとターゲット訓練の対応例</h2>
+                <p class="section-intro">
+                    評価によって特定された障害メカニズムに対し、どのような訓練が対応するかの例を示します。これにより、個別化されたリハビリテーション計画の立案が可能になります。
+                </p>
+                <div class="card">
+                    <div class="overflow-x-auto">
+                        <div class="min-w-full">
+                            <div class="grid grid-cols-3 gap-4 font-bold p-4 bg-gray-100 rounded-t-lg">
+                                <div>障害メカニズムの例</div>
+                                <div>症状の例</div>
+                                <div>ターゲット訓練の例</div>
+                            </div>
+                            <div class="divide-y divide-gray-200">
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                    <div class="font-semibold text-[#00A6ED]">意味システムへのアクセス障害</div>
+                                    <div>意味は分かるが言葉が出ない。意味的に近い錯語。</div>
+                                    <div>意味的カテゴリー分類、概念の定義付け、関連語の想起練習。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
+                                    <div class="font-semibold text-[#00A6ED]">出力語彙辞書障害</div>
+                                    <div>高頻度語の正答率が高いが、誤りに一貫性がある。</div>
+                                    <div>高頻度語から訓練を開始。TLPA名詞表出検査に基づく戦略。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                    <div class="font-semibold text-[#00A6ED]">語彙選択障害</div>
+                                    <div>無反応、舌先現象、迂言、意味性/形式性錯語。頻度効果なし。</div>
+                                    <div>漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピー。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
+                                    <div class="font-semibold text-[#00A6ED]">音韻バッファ障害</div>
+                                    <div>長い単語や文の復唱・理解が困難。</div>
+                                    <div>音韻短期記憶をターゲットにした復唱練習、非語の反復練習。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                     <div class="font-semibold text-[#00A6ED]">構文理解/生成障害 (失文法)</div>
+                                    <div>文の理解が難しく、文法的な誤りが多い。</div>
+                                    <div>文型練習、助詞の選択練習、主語・目的語の識別練習。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-center mx-auto max-w-2xl mt-4">
+                        言語情報処理モデルに基づく訓練では、特に語彙選択障害に対して、漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピーなど、具体的なアプローチが提供されます。これらの訓練は、障害の性質と頻度効果の有無に応じて慎重に選択され、その効果が客観的に評価されることで、よりエビデンスに基づいた個別化された介入が可能になっています。治療効果の「頑健な評価」を行うことの重要性も高まっており、これにより、より効果的な介入が追求されています。
+                    </p>
+                </div>
+            </section>
+            
+            <div class="card mt-8">
+                <h3 class="text-xl font-bold mb-6 text-center" style="color: #7a5195;">全失語へのアプローチ：基礎的なコミュニケーションの確立</h3>
+                <p class="text-base text-gray-700 mb-6 text-center">全失語では、全ての言語機能が重度に障害されるため、非常に基礎的なレベルからの訓練と、非言語的手段の活用、周囲の徹底した協力が不可欠です。</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">✅</span>
+                        <p class="font-bold text-lg mb-1" style="color: #003f5c;">Yes/No応答</p>
+                        <p class="text-sm text-gray-600">頭部の動き、指差し、手のジェスチャーなど、シンプルな方法で意思表示する訓練。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">🖼️</span>
+                        <p class="font-bold text-lg mb-1" style="color: #7a5195;">絵カード・実物活用</p>
+                        <p class="text-sm text-gray-600">基本的なニーズ（飲食、トイレなど）を表す絵カードや実物を使い、選択・指差しで意思を伝える練習。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">🗣️💭</span>
+                        <p class="font-bold text-lg mb-1" style="color: #bc5090;">残存音・単語の引き出し</p>
+                        <p class="text-sm text-gray-600">自発的に出せる音や簡単な単語があれば、それを強化し、意味と結びつける練習。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">😌</span>
+                        <p class="font-bold text-lg mb-1" style="color: #ff764a;">安心できる環境設定</p>
+                        <p class="text-sm text-gray-600">騒音を避け、静かで落ち着いた環境で、ゆっくりと、はっきりと話しかけ、本人の反応を焦らず待つ。</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">🤝</span>
+                        <p class="font-bold text-lg mb-1" style="color: #ffa600;">家族・介護者への指導</p>
+                        <p class="text-sm text-gray-600">失語症への理解を深め、効果的なコミュニケーション方法を学び、成功体験を増やすための指導を行う。</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-6 text-center">全失語のリハビリでは、言葉を「話す」だけでなく、あらゆる方法で「伝える」「理解する」ための基盤を築くことが重要です。</p>
+            </div>
+
+            <div class="card mt-8">
+                <h3 class="text-xl font-bold mb-4 text-center" style="color: #003f5c;">包括的アプローチ：言語回復を支える認知機能</h3>
+                <p class="text-base text-gray-700 mb-6 text-center">言語機能の回復は、見えている症状の背後にある根本的な「認知機能のメカニズム」を理解することで、より効率的に促進されます。これらの基盤となる認知機能（記憶、注意、ワーキングメモリ、実行機能、処理速度）を活性化させ、言語能力全体を高めることを目指します。</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">🧠</span>
+                        <p class="font-bold text-lg mb-1" style="color: #003f5c;">記憶</p>
+                        <p class="text-sm text-gray-600">新しい言葉の学習、会話の内容保持</p>
+                    </div>
+                    <div class="bg-purple-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">👁️‍🗨️</span>
+                        <p class="font-bold text-lg mb-1" style="color: #7a5195;">注意</p>
+                        <p class="text-sm text-gray-600">会話への集中、重要な情報選別</p>
+                    </div>
+                    <div class="bg-pink-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">💡</span>
+                        <p class="font-bold text-lg mb-1" style="color: #bc5090;">ワーキングメモリ</p>
+                        <p class="text-sm text-gray-600">複雑な文の理解、発話計画</p>
+                    </div>
+                    <div class="bg-orange-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">⚙️</span>
+                        <p class="font-bold text-lg mb-1" style="color: #ff764a;">実行機能</p>
+                        <p class="text-sm text-gray-600">思考の整理、問題解決、行動計画</p>
+                    </div>
+                    <div class="bg-yellow-50 p-5 rounded-lg shadow-md flex flex-col items-center text-center">
+                        <span class="text-4xl mb-2">⚡</span>
+                        <p class="font-bold text-lg mb-1" style="color: #ffa600;">処理速度</p>
+                        <p class="text-sm text-gray-600">言葉の素早い理解、反応速度</p>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-600 mt-6 text-center">これら認知機能を総合的に鍛えることで、言語能力の土台が強化され、より効果的なコミュニケーションが可能になります。</p>
+            </div>
+
+            <section id="new-treatments" class="mt-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: #003f5c;">最新の研究と新しい治療法</h2>
+                    <p class="max-w-3xl mx-auto text-gray-600">伝統的な言語聴覚療法に加え、脳科学やテクノロジーの進歩が新たな希望をもたらしています。ここでは主要な新しいアプローチを比較します。</p>
+                </div>
+                <div class="card overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-100">
                             <tr>
-                                <th>刺激された概念 (起点)</th>
-                                <th>活性化が拡散する関連概念の例</th>
+                                <th class="p-3 font-bold">治療法</th>
+                                <th class="p-3 font-bold">概要</th>
+                                <th class="p-3 font-bold">期待される効果</th>
+                                <th class="p-3 font-bold">現状の課題</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>犬</td>
-                                <td>動物、四足、吠える、散歩、しっぽ</td>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">脳刺激療法 (rTMS, tDCS)</td>
+                                <td class="p-3 text-sm">磁気や微弱電流で脳を刺激し、神経活動を調整する。</td>
+                                <td class="p-3 text-sm">呼称能力や文法能力の改善。言語療法との併用で効果増。</td>
+                                <td class="p-3 text-sm">高額な費用、副作用、安全性検証が進行中。</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">薬物療法</td>
+                                <td class="p-3 text-sm">抗うつ薬、抗パーキンソン病薬などが研究されている。</td>
+                                <td class="p-3 text-sm">特定の症状（呼称、保続）の改善。</td>
+                                <td class="p-3 text-sm">多くが保険適用外。エビデンスはまだ限定的。</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="p-3 font-semibold">再生医療</td>
+                                <td class="p-3 text-sm">幹細胞治療により損傷した神経細胞の再生・修復を目指す。</td>
+                                <td class="p-3 text-sm">言語理解、表出の改善（将来性）。</td>
+                                <td class="p-3 text-sm">研究段階。安全性、倫理、費用の課題が大きい。</td>
                             </tr>
                             <tr>
-                                <td>医者</td>
-                                <td>看護師、病院、薬、患者</td>
-                            </tr>
-                            <tr>
-                                <td>鳥</td>
-                                <td>飛ぶ、羽、巣、さえずる</td>
+                                <td class="p-3 font-semibold">テクノロジー活用</td>
+                                <td class="p-3 text-sm">AIリハビリアプリやオンライン言語療法サービス。</td>
+                                <td class="p-3 text-sm">アクセス向上、リハビリの継続性・個別化を支援。</td>
+                                <td class="p-3 text-sm">質の担保、データセキュリティ、デジタル格差。</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                 <p class="text-sm text-center text-gray-500 mt-4">
-                    失語症では、この活性化が弱まったり、途切れたりすることで、関連語の想起が困難になります。
-                </p>
-            </div>
-        </section>
+            </section>
+        </main>
 
-        <section id="phenomena" class="mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">典型性効果</h3>
-                    <p class="text-base leading-relaxed mb-4">
-                        「スズメは鳥？」と聞かれると即答できますが、「ダチョウは鳥？」と聞かれると少し考えてしまいます。カテゴリーを代表する典型的な例ほど、判断が速くなる現象です。これは、典型例ほどカテゴリーと強く、短く結びついているためです。
-                    </p>
-                    <div class="chart-container">
-                        <canvas id="typicalityChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-[#004e92] mb-4 text-center">プライミング効果</h3>
-                    <p class="text-base leading-relaxed mb-4">
-                        「医者」という言葉を見た後では、関連する「看護師」という言葉の認識が速くなります。先立つ情報（プライム）が、後の情報（ターゲット）の処理を助ける現象で、活性化拡散によって説明されます。
-                    </p>
-                    <div class="chart-container">
-                        <canvas id="primingChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="comparison" class="mb-16">
-             <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-[#004e92] mb-6 text-center">モデルの進化：階層からネットワークへ</h2>
-                 <p class="text-base md:text-lg text-center leading-relaxed mb-8">
-                    初期の階層モデルは、情報を整理棚のように厳格な階層で捉えていましたが、典型性効果などを説明できませんでした。より柔軟な意味ネットワークモデルは、これらの現象をうまく説明できます。
-                </p>
-                <div class="table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>特徴・要素</th>
-                                <th>階層ネットワークモデル (旧)</th>
-                                <th>意味ネットワークモデル (現)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>**構造**</td>
-                                <td>厳密な階層構造（上位・下位概念）</td>
-                                <td>意味的関連性の強さに応じた柔軟なリンク</td>
-                            </tr>
-                            <tr>
-                                <td>**情報の継承**</td>
-                                <td>上位概念の特徴が下位概念に継承される</td>
-                                <td>厳密な継承はない（リンクの強さや距離で表現）</td>
-                            </tr>
-                            <tr>
-                                <td>**典型性効果の説明**</td>
-                                <td>説明が困難</td>
-                                <td>活性化拡散で説明可能（強く、速く伝わる）</td>
-                            </tr>
-                            <tr>
-                                <td>**プライミング効果の説明**</td>
-                                <td>説明が困難</td>
-                                <td>活性化拡散で説明可能（事前活性化）</td>
-                            </tr>
-                            <tr>
-                                <td>**失語症への適用**</td>
-                                <td>構造的損傷に焦点を当てがち</td>
-                                <td>連結性・活性化拡散の障害も考察できる</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-             </div>
-        </section>
-
-        <footer class="text-center text-gray-500 mt-12 py-6 border-t">
-            <p>このインフォグラフィックは、失語症における意味ネットワークモデルの理解を深めるために作成されました。</p>
+        <footer class="text-center mt-16 py-8 border-t">
+            <p class="text-lg font-bold text-[#00A6ED]">未来へ：さらなる個別化と社会参加を目指して</p>
+            <p class="mt-2 text-gray-600">AIによる評価支援、VRを用いた実用的なコミュニケーション訓練、そして患者さん自身が主体となる意思決定。失語症リハビリテーションの進化は、これからも続きます。</p>
         </footer>
 
     </div>
 
-    <script>
-        function wrapLabel(str, maxWidth) {
-            if (str.length <= maxWidth) {
-                return str;
-            }
-            const words = str.split(' ');
-            const lines = [];
-            let currentLine = '';
-            for (const word of words) {
-                if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
-                    lines.push(currentLine.trim());
-                    currentLine = '';
-                }
-                currentLine += word + ' ';
-            }
-            lines.push(currentLine.trim());
-            return lines;
+<script>
+    function wrapLabel(str, maxWidth) {
+        if (str.length <= maxWidth) {
+            return str;
         }
-
-        const tooltipTitleCallback = (tooltipItems) => {
-            const item = tooltipItems[0];
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-                return label.join(' ');
-            } else {
-                return label;
+        const words = str.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                lines.push(currentLine.trim());
+                currentLine = '';
             }
-        };
+            currentLine += word + ' ';
+        }
+        lines.push(currentLine.trim());
+        return lines;
+    }
 
-        const chartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: '判断時間 (ミリ秒)',
-                        color: '#004e92',
-                        font: { size: 14 }
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#004e92',
-                        font: { size: 14, weight: 'bold' }
-                    }
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+            return label.join(' ');
+        } else {
+            return label;
+        }
+    };
+
+    const chartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: '判断時間 (ミリ秒)',
+                    color: '#004e92',
+                    font: { size: 14 }
                 }
             },
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    callbacks: {
-                        title: tooltipTitleCallback
-                    }
+            x: {
+                ticks: {
+                    color: '#004e92',
+                    font: { size: 14, weight: 'bold' }
                 }
             }
-        };
+        },
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        }
+    };
 
-        const typicalityData = {
-            labels: ['典型例 (スズメ)', '非典型例 (ダチョウ)'].map(l => wrapLabel(l, 16)),
-            datasets: [{
-                label: '判断時間',
-                data: [850, 1150],
-                backgroundColor: ['#4285f4', '#79a6fe'],
-                borderColor: ['#004e92', '#004e92'],
-                borderWidth: 1
-            }]
-        };
+    const typicalityData = {
+        labels: ['典型例 (スズメ)', '非典型例 (ダチョウ)'].map(l => wrapLabel(l, 16)),
+        datasets: [{
+            label: '判断時間',
+            data: [850, 1150],
+            backgroundColor: ['#4285f4', '#79a6fe'],
+            borderColor: ['#004e92', '#004e92'],
+            borderWidth: 1
+        }]
+    };
 
+    if (document.getElementById('typicalityChart')) {
         new Chart(document.getElementById('typicalityChart'), {
             type: 'bar',
             data: typicalityData,
             options: chartOptions
         });
+    }
 
-        const primingData = {
-            labels: ['関連あり (医者→看護師)', '関連なし (パン→看護師)'].map(l => wrapLabel(l, 16)),
-            datasets: [{
-                label: '認識時間',
-                data: [550, 700],
-                backgroundColor: ['#4285f4', '#79a6fe'],
-                borderColor: ['#004e92', '#004e92'],
-                borderWidth: 1
-            }]
-        };
 
+    const primingData = {
+        labels: ['関連あり (医者→看護師)', '関連なし (パン→看護師)'].map(l => wrapLabel(l, 16)),
+        datasets: [{
+            label: '認識時間',
+            data: [550, 700],
+            backgroundColor: ['#4285f4', '#79a6fe'],
+            borderColor: ['#004e92', '#004e92'],
+            borderWidth: 1
+        }]
+    };
+
+    if (document.getElementById('primingChart')) {
         new Chart(document.getElementById('primingChart'), {
             type: 'bar',
             data: primingData,
             options: chartOptions
         });
-    </script>
-</body>
-</html>
-        <section id="cognitive-model" class="mt-16">
-            <h2 class="section-title">言語処理の核心モデル</h2>
-            <p class="section-intro">
-                言語が脳内でどのように処理されるかを示す「地図」の解像度が上がったことが、精密な評価を可能にしました。認知神経心理学のモデルは、言語処理の具体的な認知モジュールとその接続を可視化します。これにより、失語症の症状がどの処理段階の破綻によって生じるのかを推測し、個別化された介入へと繋げます。
-            </p>
-            <div class="card p-4 md:p-6 flex justify-center items-center overflow-x-auto">
-                <div class="model-grid min-w-[700px] md:min-w-[800px] lg:min-w-[900px] xl:min-w-[1000px] mx-auto relative">
-                    <!-- 非言語的記号の入力 (Top Right) -->
-                    <div class="model-cell col-start-7 row-start-1 row-end-2 flex-center">
-                        <div class="model-box">非言語的記号<br>の入力</div>
-                    </div>
+    }
+</script>
 
-                    <!-- 形態認知 (非言語) -->
-                    <div class="model-cell col-start-6 row-start-2 flex-center relative">
-                        <div class="model-box">形態認知</div>
-                        <div class="path-h w-4 absolute left-[-0.2rem] top-[50%] -translate-y-1/2" style="left: -1rem; width: calc(100% + 1rem);"></div>
-                        <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                        <div class="path-v h-4 absolute left-[50%] top-full translate-x-1/2"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                    </div>
-                    
-                    <!-- 意味記憶 -->
-                    <div class="model-cell col-start-6 row-start-3 flex-center">
-                        <div class="model-box">意味記憶</div>
-                    </div>
-
-                    <!-- 文字入力 (Left Top) -->
-                    <div class="model-cell col-start-1 row-start-1 flex-center">
-                        <div class="model-box">文字入力</div>
-                    </div>
-                    <div class="model-cell col-start-2 row-start-1 flex-center">
-                        <span class="arrow-right-icon"></span>
-                    </div>
-                    <div class="model-cell col-start-3 row-start-1 flex-center">
-                        <div class="model-box">形態認知</div>
-                    </div>
-                    <div class="model-cell col-start-4 row-start-1 flex-center">
-                        <span class="arrow-right-icon"></span>
-                    </div>
-                    <div class="model-cell col-start-5 row-start-1 flex-center relative">
-                        <div class="model-box">入力文字辞書</div>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                    </div>
-                    <div class="model-cell col-start-4 row-start-1 flex-center relative">
-                        <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">形態照合</span>
-                    </div>
-                    <div class="model-cell col-start-5 row-start-2 flex-center relative">
-                        <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
-                    </div>
-
-
-                    <!-- 音声入力 (Left Middle) -->
-                    <div class="model-cell col-start-1 row-start-3 flex-center">
-                        <div class="model-box">音声入力</div>
-                    </div>
-                    <div class="model-cell col-start-2 row-start-3 flex-center">
-                        <span class="arrow-right-icon"></span>
-                    </div>
-                    <div class="model-cell col-start-3 row-start-3 flex-center">
-                        <div class="model-box">音響分析</div>
-                    </div>
-                    <div class="model-cell col-start-4 row-start-3 flex-center">
-                        <span class="arrow-right-icon"></span>
-                    </div>
-                    <div class="model-cell col-start-5 row-start-3 flex-center relative">
-                        <div class="model-box">入力音韻辞書</div>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                    </div>
-                    <div class="model-cell col-start-4 row-start-3 flex-center relative">
-                         <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
-                    </div>
-
-
-                    <!-- 意味システム (Central) -->
-                    <div class="model-cell col-start-6 row-start-2 flex-center relative">
-                        <div class="model-box bg-red-100 border-red-400 w-full h-full flex items-center justify-center">意味システム</div>
-                        <span class="arrow-right-icon absolute-arrow-r"></span>
-                        <span class="arrow-text absolute right-[-0.5rem] top-[-0.8rem]" style="transform: rotate(0deg);">意味照合<br>(decoding)</span>
-                    </div>
-
-
-                    <!-- 入力語彙辞書 (Linking Input to Semantic) -->
-                    <div class="model-cell col-start-5 row-start-2 flex-center relative">
-                        <div class="model-box">入力語彙辞書</div>
-                         <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙照合</span>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                    </div>
-                    <div class="model-cell col-start-5 row-start-4 flex-center relative">
-                        <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙選択</span>
-                    </div>
-
-                    <!-- 出力語彙辞書 (Output Path) -->
-                    <div class="model-cell col-start-5 row-start-5 flex-center relative">
-                        <div class="model-box">出力語彙辞書</div>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">語彙選択</span>
-                    </div>
-
-                    <!-- 出力音韻辞書 -->
-                    <div class="model-cell col-start-5 row-start-6 flex-center relative">
-                        <div class="model-box">出力音韻辞書</div>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">音韻選択</span>
-                    </div>
-
-                    <!-- 音韻配列 (出力バッファ) -->
-                    <div class="model-cell col-start-5 row-start-7 flex-center relative">
-                        <div class="model-box">音韻配列<br>(音韻出力バッファ)</div>
-                        <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                        <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                    </div>
-
-                    <!-- 構音運動プログラム -->
-                    <div class="model-cell col-start-5 row-start-8 flex-center relative">
-                        <div class="model-box">構音運動プログラム</div>
-                        <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
-                        <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                    </div>
-
-                    <!-- 書字運動プログラム -->
-                    <div class="model-cell col-start-5 row-start-9 flex-center relative">
-                        <div class="model-box">書字運動プログラム</div>
-                        <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
-                        <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                    </div>
-                    
-                    <!-- 音声表出 -->
-                    <div class="model-cell col-start-6 row-start-8 flex-center">
-                        <div class="model-box">音声表出</div>
-                    </div>
-
-                    <!-- 文字表出 -->
-                    <div class="model-cell col-start-6 row-start-9 flex-center">
-                        <div class="model-box">文字表出</div>
-                    </div>
-
-                    <!-- Input to Semantic via Input Lexicon -->
-                    <div class="absolute" style="left: calc(33.33% + 1rem); top: 18%;">
-                        <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
-                        <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
-                        <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">語彙照合</span>
-                    </div>
-                    <div class="absolute" style="left: calc(33.33% + 1rem); top: 38%;">
-                        <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
-                        <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
-                        <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">音韻照合</span>
-                    </div>
-                    
-                    <!-- Non-linguistic to Semantic System -->
-                    <div class="absolute" style="left: calc(85.7% - 0.5rem); top: 12%;">
-                        <div class="path-v h-[3rem] w-[1px] bg-[#6b7280]"></div>
-                        <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                    </div>
-
-                    <!-- Semantic System to Output Lexicon -->
-                    <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 50%;">
-                        <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
-                        <span class="path-arrow-right absolute right-0"></span>
-                        <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">語彙選択 (encoding)</span>
-                    </div>
-
-                    <!-- From Input Lexicons to Semantic System (decoding) -->
-                    <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 20%;">
-                        <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
-                        <span class="path-arrow-right absolute right-0"></span>
-                        <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">意味照合 (decoding)</span>
-                    </div>
-
-                    <!-- Phonological/Graphemic Buffers -->
-                    <div class="model-cell col-start-3 row-start-7 flex-center relative">
-                        <div class="model-box">モーラ分解・抽出</div>
-                        <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">音韻選択</span>
-                    </div>
-                     <div class="model-cell col-start-3 row-start-8 flex-center relative">
-                        <div class="model-box">文字選択</div>
-                        <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">文字選択</span>
-                    </div>
-
-                    <!-- Lines from output lexicons to motor programs -->
-                    <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                         <div class="path-h w-4 bg-[#6b7280]"></div>
-                        <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                    </div>
-                     <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                        <div class="path-h w-4 bg-[#6b7280]"></div>
-                        <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                    </div>
-
-                    <!-- Output from Phonological Buffer to Graphemic Buffer -->
-                    <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1.5rem);">
-                        <div class="path-h w-[1rem] bg-[#6b7280]"></div>
-                        <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                    </div>
-
-                    <!-- Arrows connecting output lexicon to phonological/graphemic buffers via "音韻選択", "文字選択" -->
-                    <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                        <div class="path-h w-4 bg-[#6b7280]"></div>
-                        <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                    </div>
-                    <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                        <div class="path-h w-4 bg-[#6b7280]"></div>
-                        <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                    </div>
-
-
-                    <!-- Line for Phonological Sequence to Motor Programs -->
-                    <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem);">
-                        <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                        <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                    </div>
-
-                     <!-- Path from Output Phonological Lexicon to Phonological Buffer -->
-                    <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(55.5% - 1rem);">
-                        <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                        <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                    </div>
-                    <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(66.6% - 1rem);">
-                        <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                        <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                    </div>
-
-                    <!-- Connections from non-linguistic -->
-                    <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 0.5rem); height: 1rem; width: 1px; background-color: #6b7280;"></div>
-                    <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 1.5rem); height: 1px; width: 1rem; background-color: #6b7280;"></div>
-                    <span class="path-arrow-right absolute" style="left: calc(71.4% + 0.2rem + 1rem); top: calc(11.1% + 1.5rem - 3px);"></span>
-                </div>
-                <p class="text-xs text-center text-gray-500 mt-4">言語情報処理モデル（基本形）を基に構成。各ボックス（処理段階）や矢印（情報の流れ）のどこに問題があるかを特定します。</p>
-            </div>
-        </section>
-    </div>
 </body>
 </html>
