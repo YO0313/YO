@@ -52,85 +52,6 @@
             max-width: 48rem;
             margin: 0 auto 2.5rem auto;
         }
-        .model-box {
-            border-radius: 0.375rem;
-            padding: 0.5rem 0.4rem;
-            text-align: center;
-            font-size: 0.7rem;
-            line-height: 1rem;
-            font-weight: 500;
-            border-width: 1px;
-            border-color: #6b7280;
-            background-color: #f9fafb;
-            color: #3C5A7D;
-            min-height: 2.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            flex-shrink: 1;
-        }
-        .model-grid {
-            display: grid;
-            grid-template-columns: 0.7fr 0.3fr 1fr 0.3fr 1fr 0.3fr 1fr;
-            gap: 0.1rem;
-            align-items: start;
-            font-size: 0.7rem;
-            line-height: 0.9rem;
-        }
-        .model-cell {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0.1rem;
-            position: relative;
-        }
-        .arrow-text {
-            font-size: 0.65rem;
-            color: #6b7280;
-            position: absolute;
-            white-space: nowrap;
-        }
-        .arrow-right-icon::after { content: '→'; font-size: 1.2rem; }
-        .arrow-down-icon::after { content: '↓'; font-size: 1.2rem; }
-        .arrow-up-icon::after { content: '↑'; font-size: 1.2rem; }
-
-        .path-h, .path-v {
-            position: absolute;
-            background-color: #6b7280;
-            z-index: 10;
-        }
-        .path-h { height: 1px; width: 100%; }
-        .path-v { width: 1px; height: 100%; }
-        
-        .path-arrow-right::after, .path-arrow-down::after, .path-arrow-up::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 0;
-        }
-        .path-arrow-right::after {
-            right: 0;
-            top: -3px;
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            border-left: 4px solid #6b7280;
-        }
-        .path-arrow-down::after {
-            bottom: 0;
-            left: -3px;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-top: 4px solid #6b7280;
-        }
-        .path-arrow-up::after {
-            top: 0;
-            left: -3px;
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-bottom: 4px solid #6b7280;
-        }
         
         /* Inserted Styles */
         .table-container {
@@ -540,180 +461,13 @@
                 <p class="section-intro">
                     言語が脳内でどのように処理されるかを示す「地図」の解像度が上がったことが、精密な評価を可能にしました。認知神経心理学のモデルは、言語処理の具体的な認知モジュールとその接続を可視化します。これにより、失語症の症状がどの処理段階の破綻によって生じるのかを推測し、個別化された介入へと繋げます。
                 </p>
-                <div class="card p-4 md:p-6 flex justify-center items-center overflow-x-auto">
-                    <div class="model-grid min-w-[700px] md:min-w-[800px] lg:min-w-[900px] xl:min-w-[1000px] mx-auto relative">
-                        <div class="model-cell col-start-7 row-start-1 row-end-2 flex-center">
-                            <div class="model-box">非言語的記号<br>の入力</div>
-                        </div>
-                        <div class="model-cell col-start-6 row-start-2 flex-center relative">
-                            <div class="model-box">形態認知</div>
-                            <div class="path-h w-4 absolute left-[-0.2rem] top-[50%] -translate-y-1/2" style="left: -1rem; width: calc(100% + 1rem);"></div>
-                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                            <div class="path-v h-4 absolute left-[50%] top-full translate-x-1/2"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-6 row-start-3 flex-center">
-                            <div class="model-box">意味記憶</div>
-                        </div>
-                        <div class="model-cell col-start-1 row-start-1 flex-center">
-                            <div class="model-box">文字入力</div>
-                        </div>
-                        <div class="model-cell col-start-2 row-start-1 flex-center">
-                            <span class="arrow-right-icon"></span>
-                        </div>
-                        <div class="model-cell col-start-3 row-start-1 flex-center">
-                            <div class="model-box">形態認知</div>
-                        </div>
-                        <div class="model-cell col-start-4 row-start-1 flex-center">
-                            <span class="arrow-right-icon"></span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-1 flex-center relative">
-                            <div class="model-box">入力文字辞書</div>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-4 row-start-1 flex-center relative">
-                            <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">形態照合</span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-2 flex-center relative">
-                            <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
-                        </div>
-                        <div class="model-cell col-start-1 row-start-3 flex-center">
-                            <div class="model-box">音声入力</div>
-                        </div>
-                        <div class="model-cell col-start-2 row-start-3 flex-center">
-                            <span class="arrow-right-icon"></span>
-                        </div>
-                        <div class="model-cell col-start-3 row-start-3 flex-center">
-                            <div class="model-box">音響分析</div>
-                        </div>
-                        <div class="model-cell col-start-4 row-start-3 flex-center">
-                            <span class="arrow-right-icon"></span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-3 flex-center relative">
-                            <div class="model-box">入力音韻辞書</div>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-4 row-start-3 flex-center relative">
-                             <span class="arrow-text absolute top-[-0.8rem] right-[50%] translate-x-1/2">音韻照合</span>
-                        </div>
-                        <div class="model-cell col-start-6 row-start-2 flex-center relative">
-                            <div class="model-box bg-red-100 border-red-400 w-full h-full flex items-center justify-center">意味システム</div>
-                            <span class="arrow-right-icon absolute-arrow-r"></span>
-                            <span class="arrow-text absolute right-[-0.5rem] top-[-0.8rem]" style="transform: rotate(0deg);">意味照合<br>(decoding)</span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-2 flex-center relative">
-                            <div class="model-box">入力語彙辞書</div>
-                             <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙照合</span>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-4 flex-center relative">
-                            <span class="arrow-text absolute top-[-0.8rem] left-[50%] -translate-x-1/2">語彙選択</span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-5 flex-center relative">
-                            <div class="model-box">出力語彙辞書</div>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                            <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">語彙選択</span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-6 flex-center relative">
-                            <div class="model-box">出力音韻辞書</div>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                            <span class="arrow-text absolute bottom-[-0.8rem] right-[-0.5rem]">音韻選択</span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-7 flex-center relative">
-                            <div class="model-box">音韻配列<br>(音韻出力バッファ)</div>
-                            <div class="path-v h-4 absolute left-[50%] top-full"></div>
-                            <span class="path-arrow-down absolute left-[50%] top-[calc(100% + 0.5rem)] -translate-x-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-8 flex-center relative">
-                            <div class="model-box">構音運動プログラム</div>
-                            <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
-                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-5 row-start-9 flex-center relative">
-                            <div class="model-box">書字運動プログラム</div>
-                            <div class="path-h w-4 absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></div>
-                            <span class="path-arrow-right absolute left-[calc(100% - 0.5rem)] top-[50%] -translate-y-1/2"></span>
-                        </div>
-                        <div class="model-cell col-start-6 row-start-8 flex-center">
-                            <div class="model-box">音声表出</div>
-                        </div>
-                        <div class="model-cell col-start-6 row-start-9 flex-center">
-                            <div class="model-box">文字表出</div>
-                        </div>
-                        <div class="absolute" style="left: calc(33.33% + 1rem); top: 18%;">
-                            <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
-                            <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
-                            <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">語彙照合</span>
-                        </div>
-                        <div class="absolute" style="left: calc(33.33% + 1rem); top: 38%;">
-                            <div class="path-v h-[1rem] w-[1px] bg-[#6b7280]"></div>
-                            <span class="arrow-down-icon absolute -left-[0.6rem] top-[0.8rem]"></span>
-                            <span class="arrow-text absolute left-[0.8rem] top-[0.6rem]">音韻照合</span>
-                        </div>
-                        <div class="absolute" style="left: calc(85.7% - 0.5rem); top: 12%;">
-                            <div class="path-v h-[3rem] w-[1px] bg-[#6b7280]"></div>
-                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 50%;">
-                            <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
-                            <span class="path-arrow-right absolute right-0"></span>
-                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">語彙選択 (encoding)</span>
-                        </div>
-                        <div class="absolute" style="left: calc(71.4% + 0.5rem); top: 20%;">
-                            <div class="path-h w-[1rem] bg-[#6b7280]" style="left: -1rem;"></div>
-                            <span class="path-arrow-right absolute right-0"></span>
-                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">意味照合 (decoding)</span>
-                        </div>
-                        <div class="model-cell col-start-3 row-start-7 flex-center relative">
-                            <div class="model-box">モーラ分解・抽出</div>
-                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">音韻選択</span>
-                        </div>
-                         <div class="model-cell col-start-3 row-start-8 flex-center relative">
-                            <div class="model-box">文字選択</div>
-                            <span class="arrow-text absolute top-[-0.8rem] right-[-0.5rem]">文字選択</span>
-                        </div>
-                        <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                             <div class="path-h w-4 bg-[#6b7280]"></div>
-                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                        </div>
-                         <div class="absolute" style="left: calc(57.1% + 0.2rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                            <div class="path-h w-4 bg-[#6b7280]"></div>
-                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1.5rem);">
-                            <div class="path-h w-[1rem] bg-[#6b7280]"></div>
-                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(66.6% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                            <div class="path-h w-4 bg-[#6b7280]"></div>
-                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem); transform: rotate(90deg); transform-origin: top left;">
-                            <div class="path-h w-4 bg-[#6b7280]"></div>
-                            <span class="path-arrow-right absolute right-0 top-[-3px]"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(42.8% + 0.5rem); top: calc(77.7% - 1rem);">
-                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(55.5% - 1rem);">
-                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(57.1% + 0.5rem); top: calc(66.6% - 1rem);">
-                            <div class="path-v h-[1rem] bg-[#6b7280]"></div>
-                            <span class="path-arrow-down absolute left-[-3px] bottom-0"></span>
-                        </div>
-                        <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 0.5rem); height: 1rem; width: 1px; background-color: #6b7280;"></div>
-                        <div class="absolute" style="left: calc(71.4% + 0.2rem); top: calc(11.1% + 1.5rem); height: 1px; width: 1rem; background-color: #6b7280;"></div>
-                        <span class="path-arrow-right absolute" style="left: calc(71.4% + 0.2rem + 1rem); top: calc(11.1% + 1.5rem - 3px);"></span>
-                    </div>
-                    <p class="text-xs text-center text-gray-500 mt-4">言語情報処理モデル（基本形）を基に構成。各ボックス（処理段階）や矢印（情報の流れ）のどこに問題があるかを特定します。</p>
+                <div class="card text-center p-8">
+                    <p class="mb-6 text-gray-700">
+                        言語情報処理モデルは、音声や文字がどのように理解され、言葉として発せられるかの経路を図式化したものです。このモデルの詳細は、以下のリンクから図でご確認いただけます。
+                    </p>
+                    <a href="https://assets.st-note.com/production/uploads/images/6458686/picture_pc_7784c22c139377f2e63be293d2d6bae3.jpg?width=1200" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00A6ED] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#008bc5] transition-colors shadow-md">
+                        言語処理の核心モデル図を見る
+                    </a>
                 </div>
             </section>
 
@@ -873,6 +627,18 @@
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </section>
+            
+            <section id="references" class="mt-16">
+                <h2 class="section-title">引用文献</h2>
+                <div class="card bg-gray-50">
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+                        <li>藤田, 一郎 (2018). 『改訂版 失語症の認知神経心理学：理論と臨床』. 医学書院.</li>
+                        <li>立石, 正之 & 船山, 道子 (2020). 語彙選択障害を呈した失語症例に対する意味・音韻治療の効果. <em>高次脳機能研究</em>, 40(2), 185-196.</li>
+                        <li>Collins, A. M., & Loftus, E. F. (1975). A spreading-activation theory of semantic processing. <em>Psychological Review</em>, 82(6), 407–428.</li>
+                        <li>一般社団法人 日本言語聴覚士協会 (2022). 『失語症リハビリテーション・ガイドライン』.</li>
+                    </ol>
                 </div>
             </section>
         </main>
