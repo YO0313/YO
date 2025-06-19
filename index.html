@@ -53,7 +53,6 @@
             margin: 0 auto 2.5rem auto;
         }
         
-        /* Inserted Styles */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -76,7 +75,7 @@
         .custom-table tr:nth-child(even) {
             background-color: #f8fcfd;
         }
-        /* Style for the table within the original inserted text content */
+        
         .inserted-table th, .inserted-table td {
             border: 1px solid #e2e8f0;
             padding: 0.75rem;
@@ -94,13 +93,45 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Styles for flowchart */
         .flowchart-step {
             border-left-width: 6px;
             border-style: solid;
         }
         .flowchart-arrow {
             color: #4a5568;
+        }
+
+        /* Styles for App List Section */
+        .gradient-text {
+            background: linear-gradient(to right, #4a90e2, #50e3c2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .app-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #e2e8f0;
+        }
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .icon-bg {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .app-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -187,8 +218,23 @@
                 </div>
             </section>
 
+            <section id="cognitive-model" class="mt-16">
+                <h2 class="section-title">言語処理の核心モデル</h2>
+                <p class="section-intro">
+                    言語が脳内でどのように処理されるかを示す「地図」の解像度が上がったことが、精密な評価を可能にしました。認知神経心理学のモデルは、言語処理の具体的な認知モジュールとその接続を可視化します。これにより、失語症の症状がどの処理段階の破綻によって生じるのかを推測し、個別化された介入へと繋げます。
+                </p>
+                <div class="card text-center p-8">
+                    <p class="mb-6 text-gray-700">
+                        言語情報処理モデルは、音声や文字がどのように理解され、言葉として発せられるかの経路を図式化したものです。このモデルの詳細は、以下のリンクから図でご確認いただけます。
+                    </p>
+                    <a href="https://assets.st-note.com/production/uploads/images/6458686/picture_pc_7784c22c139377f2e63be293d2d6bae3.jpg?width=1200" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00A6ED] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#008bc5] transition-colors shadow-md">
+                        言語処理の核心モデル図を見る
+                    </a>
+                </div>
+            </section>
+
             <section id="detailed-cognitive-neuropsychology-text-insert" class="mt-16">
-                <h2 class="section-title">詳細：言語情報処理への認知神経心理学的アプローチ</h2>
+                <h2 class="section-title">言語情報処理への認知神経心理学的アプローチ</h2>
                 <p class="section-intro">
                     ここでは、失語症を理解するための認知神経心理学的アプローチの理論的背景と、その進化について詳細に解説します。
                 </p>
@@ -297,6 +343,48 @@
                 </div>
 
                 <div class="card mt-8">
+                    <h3 class="text-xl font-bold mb-4">障害メカニズムとターゲット訓練の対応例</h3>
+                    <p class="text-gray-700 mb-4 text-center">評価によって特定された障害メカニズムに対し、どのような訓練が対応するかの例を示します。これにより、個別化されたリハビリテーション計画の立案が可能になります。</p>
+                    <div class="overflow-x-auto">
+                        <div class="min-w-full">
+                            <div class="grid grid-cols-3 gap-4 font-bold p-4 bg-gray-100 rounded-t-lg">
+                                <div>障害メカニズムの例</div>
+                                <div>症状の例</div>
+                                <div>ターゲット訓練の例</div>
+                            </div>
+                            <div class="divide-y divide-gray-200">
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                    <div class="font-semibold text-[#00A6ED]">意味システムへのアクセス障害</div>
+                                    <div>意味は分かるが言葉が出ない。意味的に近い錯語。</div>
+                                    <div>意味的カテゴリー分類、概念の定義付け、関連語の想起練習。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
+                                    <div class="font-semibold text-[#00A6ED]">出力語彙辞書障害</div>
+                                    <div>高頻度語の正答率が高いが、誤りに一貫性がある。</div>
+                                    <div>高頻度語から訓練を開始。TLPA名詞表出検査に基づく戦略。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                    <div class="font-semibold text-[#00A6ED]">語彙選択障害</div>
+                                    <div>無反応、舌先現象、迂言、意味性/形式性錯語。頻度効果なし。</div>
+                                    <div>漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピー。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
+                                    <div class="font-semibold text-[#00A6ED]">音韻バッファ障害</div>
+                                    <div>長い単語や文の復唱・理解が困難。</div>
+                                    <div>音韻短期記憶をターゲットにした復唱練習、非語の反復練習。</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4 p-4">
+                                     <div class="font-semibold text-[#00A6ED]">構文理解/生成障害 (失文法)</div>
+                                    <div>文の理解が難しく、文法的な誤りが多い。</div>
+                                    <div>文型練習、助詞の選択練習、主語・目的語の識別練習。</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-center mx-auto max-w-2xl mt-4">言語情報処理モデルに基づく訓練では、特に語彙選択障害に対して、漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピーなど、具体的なアプローチが提供されます。これらの訓練は、障害の性質と頻度効果の有無に応じて慎重に選択され、その効果が客観的に評価されることで、よりエビデンスに基づいた個別化された介入が可能になっています。治療効果の「頑健な評価」を行うことの重要性も高まっており、これにより、より効果的な介入が追求されています。</p>
+                </div>
+
+                <div class="card mt-8">
                     <h3 class="text-xl font-bold mb-4">3.1. 診断パラダイムの変遷</h3>
                     <p class="text-gray-700 mb-4">
                         過去10年間で、失語症の評価は、純粋な神経学的分類から、より洗練された認知心理学的分類へと進化してきました。以前は、脳の損傷部位に基づいて失読症（読みの障害）や失書症（書字の障害）が分類されることが多かったですが、現在は、脳損傷が正常な認知機能のどの構成要素に影響を与えているかを特定することに重点が置かれています。例えば、失読・失書の分類には神経学的分類と認知心理学的分類が知られており、神経学的分類では失語性失読・失書と非失語性（孤立性）失読・失書に分けられますが、分類については定説がない状態です。このことは、症状の背後にある認知プロセスを理解することの重要性が増していることを示唆しています。
@@ -379,8 +467,8 @@
                                 </table>
                             </div>
                              <p class="text-sm text-center text-gray-500 mt-4">
-                                 失語症では、この活性化が弱まったり、途切れたりすることで、関連語の想起が困難になります。
-                             </p>
+                                  失語症では、この活性化が弱まったり、途切れたりすることで、関連語の想起が困難になります。
+                               </p>
                          </div>
                     </section>
 
@@ -411,8 +499,8 @@
                          <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
                             <h3 class="text-2xl font-bold text-[#004e92] mb-6 text-center">モデルの進化：階層からネットワークへ</h3>
                              <p class="text-base md:text-lg text-center leading-relaxed mb-8">
-                                 初期の階層モデルは、情報を整理棚のように厳格な階層で捉えていましたが、典型性効果などを説明できませんでした。より柔軟な意味ネットワークモデルは、これらの現象をうまく説明できます。
-                             </p>
+                                  初期の階層モデルは、情報を整理棚のように厳格な階層で捉えていましたが、典型性効果などを説明できませんでした。より柔軟な意味ネットワークモデルは、これらの現象をうまく説明できます。
+                               </p>
                             <div class="table-container">
                                 <table class="custom-table">
                                     <thead>
@@ -453,69 +541,56 @@
                             </div>
                          </div>
                     </section>
-                </div>
-            </section>
-
-            <section id="cognitive-model" class="mt-16">
-                <h2 class="section-title">言語処理の核心モデル</h2>
-                <p class="section-intro">
-                    言語が脳内でどのように処理されるかを示す「地図」の解像度が上がったことが、精密な評価を可能にしました。認知神経心理学のモデルは、言語処理の具体的な認知モジュールとその接続を可視化します。これにより、失語症の症状がどの処理段階の破綻によって生じるのかを推測し、個別化された介入へと繋げます。
-                </p>
-                <div class="card text-center p-8">
-                    <p class="mb-6 text-gray-700">
-                        言語情報処理モデルは、音声や文字がどのように理解され、言葉として発せられるかの経路を図式化したものです。このモデルの詳細は、以下のリンクから図でご確認いただけます。
-                    </p>
-                    <a href="https://assets.st-note.com/production/uploads/images/6458686/picture_pc_7784c22c139377f2e63be293d2d6bae3.jpg?width=1200" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#00A6ED] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#008bc5] transition-colors shadow-md">
-                        言語処理の核心モデル図を見る
-                    </a>
-                </div>
-            </section>
-
-            <section id="training-mapping-section" class="mt-16">
-                <h2 class="section-title">障害メカニズムとターゲット訓練の対応例</h2>
-                <p class="section-intro">
-                    評価によって特定された障害メカニズムに対し、どのような訓練が対応するかの例を示します。これにより、個別化されたリハビリテーション計画の立案が可能になります。
-                </p>
-                <div class="card">
-                    <div class="overflow-x-auto">
-                        <div class="min-w-full">
-                            <div class="grid grid-cols-3 gap-4 font-bold p-4 bg-gray-100 rounded-t-lg">
-                                <div>障害メカニズムの例</div>
-                                <div>症状の例</div>
-                                <div>ターゲット訓練の例</div>
-                            </div>
-                            <div class="divide-y divide-gray-200">
-                                <div class="grid grid-cols-3 gap-4 p-4">
-                                    <div class="font-semibold text-[#00A6ED]">意味システムへのアクセス障害</div>
-                                    <div>意味は分かるが言葉が出ない。意味的に近い錯語。</div>
-                                    <div>意味的カテゴリー分類、概念の定義付け、関連語の想起練習。</div>
+                    
+                    <section id="training" class="mb-16">
+                        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                            <h2 class="text-2xl font-bold text-[#004e92] mb-6 text-center">失語症訓練：意味ネットワークモデルからのアプローチ</h2>
+                            <p class="text-base md:text-lg text-center leading-relaxed mb-8">
+                                意味ネットワークモデルの理解は、失語症に対する効果的な言語訓練の設計に役立ちます。訓練の目的は、損傷した概念ノードやリンクを強化し、活性化拡散の効率を高めることです。
+                            </p>
+            
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                <div class="bg-blue-50 rounded-lg p-5 border border-blue-200">
+                                    <h3 class="text-xl font-bold text-[#004e92] mb-3">1. 意味的カテゴリーに基づいた訓練 (SFA)</h3>
+                                    <p class="text-base mb-2"><strong>目的:</strong> 概念ノードとその関連リンクの強化</p>
+                                    <p class="text-sm leading-relaxed text-gray-700">
+                                        単語の属性（カテゴリー、用途、特徴、場所など）を複数挙げてもらうことで、その単語の意味の核を活性化し、関連する意味的特徴への拡散を促します。
+                                    </p>
                                 </div>
-                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
-                                    <div class="font-semibold text-[#00A6ED]">出力語彙辞書障害</div>
-                                    <div>高頻度語の正答率が高いが、誤りに一貫性がある。</div>
-                                    <div>高頻度語から訓練を開始。TLPA名詞表出検査に基づく戦略。</div>
+                                <div class="bg-blue-50 rounded-lg p-5 border border-blue-200">
+                                    <h3 class="text-xl font-bold text-[#004e92] mb-3">2. 語彙再獲得訓練</h3>
+                                    <p class="text-base mb-2"><strong>目的:</strong> 単語へのアクセス経路の強化</p>
+                                    <p class="text-sm leading-relaxed text-gray-700">
+                                        フラッシュカードや絵を用いてターゲット単語を繰り返し発話したり、音韻的・意味的なヒントを与えながら想起を促したりします。これにより、単語ノードを強化し、アクセスパスを強固にします。
+                                    </p>
                                 </div>
-                                <div class="grid grid-cols-3 gap-4 p-4">
-                                    <div class="font-semibold text-[#00A6ED]">語彙選択障害</div>
-                                    <div>無反応、舌先現象、迂言、意味性/形式性錯語。頻度効果なし。</div>
-                                    <div>漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピー。</div>
+                                <div class="bg-blue-50 rounded-lg p-5 border border-blue-200">
+                                    <h3 class="text-xl font-bold text-[#004e92] mb-3">3. プライミング効果活用訓練</h3>
+                                    <p class="text-base mb-2"><strong>目的:</strong> 活性化拡散の効率化</p>
+                                    <p class="text-sm leading-relaxed text-gray-700">
+                                        意味的に関連のある単語ペア（例：「医者」→「看護師」）を繰り返し提示し、後続単語の処理速度を改善します。弱くなった拡散経路を活性化させ、スムーズなアクセスを目指します。
+                                    </p>
                                 </div>
-                                <div class="grid grid-cols-3 gap-4 p-4 bg-gray-50">
-                                    <div class="font-semibold text-[#00A6ED]">音韻バッファ障害</div>
-                                    <div>長い単語や文の復唱・理解が困難。</div>
-                                    <div>音韻短期記憶をターゲットにした復唱練習、非語の反復練習。</div>
+                                <div class="bg-blue-50 rounded-lg p-5 border border-blue-200">
+                                    <h3 class="text-xl font-bold text-[#004e92] mb-3">4. 典型性効果を考慮した訓練</h3>
+                                    <p class="text-base mb-2"><strong>目的:</strong> 非典型概念へのアクセス改善</p>
+                                    <p class="text-sm leading-relaxed text-gray-700">
+                                        典型的な概念（例：「スズメ」）から訓練を始め、徐々に非典型的な概念（例：「ダチョウ」）へと移行します。これにより、非典型概念への新たなリンク構築や既存リンクの強化を促します。
+                                    </p>
                                 </div>
-                                <div class="grid grid-cols-3 gap-4 p-4">
-                                     <div class="font-semibold text-[#00A6ED]">構文理解/生成障害 (失文法)</div>
-                                    <div>文の理解が難しく、文法的な誤りが多い。</div>
-                                    <div>文型練習、助詞の選択練習、主語・目的語の識別練習。</div>
+                                <div class="bg-blue-50 rounded-lg p-5 border border-blue-200">
+                                    <h3 class="text-xl font-bold text-[#004e92] mb-3">5. コミュニケーション中心の訓練</h3>
+                                    <p class="text-base mb-2"><strong>目的:</strong> 日常生活での言語機能向上</p>
+                                    <p class="text-sm leading-relaxed text-gray-700">
+                                        会話、物語の再話、役割演技など、より自然なコミュニケーション状況を設定し、言葉の機能的な使用を促します。これにより、ネットワーク全体の機能と柔軟性が高まります。
+                                    </p>
                                 </div>
                             </div>
+                            <p class="text-sm text-center text-gray-500 mt-8">
+                                これらの訓練は、失語症のタイプや重症度に合わせて言語聴覚士によってカスタマイズされます。
+                            </p>
                         </div>
-                    </div>
-                    <p class="text-gray-700 text-center mx-auto max-w-2xl mt-4">
-                        言語情報処理モデルに基づく訓練では、特に語彙選択障害に対して、漢字選択課題、語形提示意味セラピー、定義文意味セラピー、迂言を用いた呼称訓練、音韻セラピーなど、具体的なアプローチが提供されます。これらの訓練は、障害の性質と頻度効果の有無に応じて慎重に選択され、その効果が客観的に評価されることで、よりエビデンスに基づいた個別化された介入が可能になっています。治療効果の「頑健な評価」を行うことの重要性も高まっており、これにより、より効果的な介入が追求されています。
-                    </p>
+                   </section>
                 </div>
             </section>
             
@@ -629,7 +704,252 @@
                     </table>
                 </div>
             </section>
+
+            <section id="technology-future" class="mt-16">
+                <h2 class="section-title">テクノロジーが拓くリハビリの未来</h2>
+                <p class="section-intro">
+                    テクノロジーの進化は、失語症リハビリテーションに新たな可能性をもたらしています。AI、VR、モバイルアプリなどが、より個別化され、効果的で、継続しやすい訓練を可能にし、患者さんの社会復帰を力強く支援します。
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card text-center border-t-4 border-teal-400 flex flex-col items-center">
+                        <div class="flex-shrink-0 mb-4">
+                            <svg class="w-16 h-16 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5M19.5 8.25h-1.5m-15 3.75h1.5m15 0h1.5M12 6.75A2.25 2.25 0 0 1 14.25 9v6a2.25 2.25 0 0 1-4.5 0V9A2.25 2.25 0 0 1 12 6.75Z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-teal-600">AIによる個別最適化</h3>
+                        <p class="text-gray-600 text-sm">AIが個人の症状や進捗を分析し、最適な訓練課題を自動で提供。発音の正確性を即時フィードバックすることで、効率的な学習を促します。</p>
+                    </div>
             
+                    <div class="card text-center border-t-4 border-purple-400 flex flex-col items-center">
+                        <div class="flex-shrink-0 mb-4">
+                            <svg class="w-16 h-16 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75-11.25a3 3 0 0 1 3-3h1.5a3 3 0 0 1 3 3v1.5a3 3 0 0 1-3 3h-1.5a3 3 0 0 1-3-3v-1.5Zm-3.75 0h.008v.015h-.008V7.5Zm1.5 0h.008v.015h-.008V7.5Zm1.5 0h.008v.015h-.008V7.5Zm1.5 0h.008v.015h-.008V7.5Z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-purple-600">VRでの実践的コミュニケーション</h3>
+                        <p class="text-gray-600 text-sm">仮想現実空間で「買い物」「レストランでの注文」など、実生活に近い状況を安全に体験。失敗を恐れずに挑戦でき、社会参加への自信を育みます。</p>
+                    </div>
+            
+                    <div class="card text-center border-t-4 border-sky-400 flex flex-col items-center">
+                        <div class="flex-shrink-0 mb-4">
+                            <svg class="w-16 h-16 text-sky-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-sky-600">アプリと遠隔リハビリ</h3>
+                        <p class="text-gray-600 text-sm">スマートフォンアプリを使えば、いつでもどこでも自主訓練が可能。ゲーム感覚で楽しく続けられる工夫も。ビデオ通話で専門家と繋がる遠隔リハビリも普及しています。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="app-list" class="mt-16">
+                 <div class="container mx-auto p-4 sm:p-8">
+             
+                     <!-- Header -->
+                     <header class="text-center mb-12">
+                         <h1 class="text-3xl md:text-5xl font-bold gradient-text mb-2">失語症関連アプリ</h1>
+                         <p class="text-md md:text-lg text-gray-600"></p>
+                     </header>
+             
+                     <!-- Main Content -->
+                     <main>
+                         <!-- Section: Rehabilitation & Training -->
+                         <section class="mb-16">
+                             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 border-l-4 border-blue-500 pl-4 mb-8">リハビリ・トレーニング</h2>
+                             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                 <!-- App Card: コトサプ -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                         <div class="icon-bg bg-blue-100 text-blue-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">コトサプ（コトバサプリ）</h3>
+                                         <p class="text-gray-600 text-sm mb-4">総合的な言語訓練で、「読む・聞く・話す」を多角的にサポート。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-blue-100 text-blue-800">読む</span>
+                                             <span class="app-tag bg-blue-100 text-blue-800">聞く</span>
+                                             <span class="app-tag bg-blue-100 text-blue-800">話す</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span>月額980円</span>
+                                             <div class="flex gap-2">
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 21.17a1 1 0 0 0 1.09-1.84l-1.82-.78a1 1 0 0 1-.78-1.84l3.52-1.51a1 1 0 0 0 .63-1.83l-1.09-2.55a1 1 0 0 1 .44-1.28l4.2-2.52a1 1 0 0 0 .44-1.28l-.17-.32a1 1 0 0 0-1.28-.44l-4.2 2.52a1 1 0 0 1-1.28.44l-1.09-2.55a1 1 0 0 0-1.83.63l-1.51 3.52a1 1 0 0 1-1.84-.78l-.78-1.82a1 1 0 0 0-1.84 1.09l2.83 6.58a1 1 0 0 0 1.28.44l1.09 2.55a1 1 0 0 1-.44 1.28l-4.2 2.52a1 1 0 0 0-.44 1.28l.17.32a1 1 0 0 0 1.28.44l4.2-2.52a1 1 0 0 1 1.28-.44Z"></path></svg>
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+             
+                                 <!-- App Card: 呼称リハ -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                        <div class="icon-bg bg-green-100 text-green-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">呼称リハ (易・難)</h3>
+                                         <p class="text-gray-600 text-sm mb-4">単語を思い出す訓練に特化。言語聴覚士開発で安心。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-green-100 text-green-800">喚語</span>
+                                             <span class="app-tag bg-green-100 text-green-800">シンプル</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span class="font-bold text-green-600">無料</span>
+                                             <div class="flex gap-2">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 21.17a1 1 0 0 0 1.09-1.84l-1.82-.78a1 1 0 0 1-.78-1.84l3.52-1.51a1 1 0 0 0 .63-1.83l-1.09-2.55a1 1 0 0 1 .44-1.28l4.2-2.52a1 1 0 0 0 .44-1.28l-.17-.32a1 1 0 0 0-1.28-.44l-4.2 2.52a1 1 0 0 1-1.28.44l-1.09-2.55a1 1 0 0 0-1.83.63l-1.51 3.52a1 1 0 0 1-1.84-.78l-.78-1.82a1 1 0 0 0-1.84 1.09l2.83 6.58a1 1 0 0 0 1.28.44l1.09 2.55a1 1 0 0 1-.44 1.28l-4.2 2.52a1 1 0 0 0-.44 1.28l.17.32a1 1 0 0 0 1.28.44l4.2-2.52a1 1 0 0 1 1.28-.44Z"></path></svg>
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+             
+                                 <!-- App Card: かな書字リハ -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                         <div class="icon-bg bg-yellow-100 text-yellow-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path><path d="m15 5 4 4"></path></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">かな書字リハ</h3>
+                                         <p class="text-gray-600 text-sm mb-4">仮名の読み書きが苦手な方向け。音声付きで自主トレに最適。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-yellow-100 text-yellow-800">読み書き</span>
+                                             <span class="app-tag bg-yellow-100 text-yellow-800">音声付き</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span class="font-bold text-green-600">無料</span>
+                                             <div class="flex gap-2">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 21.17a1 1 0 0 0 1.09-1.84l-1.82-.78a1 1 0 0 1-.78-1.84l3.52-1.51a1 1 0 0 0 .63-1.83l-1.09-2.55a1 1 0 0 1 .44-1.28l4.2-2.52a1 1 0 0 0 .44-1.28l-.17-.32a1 1 0 0 0-1.28-.44l-4.2 2.52a1 1 0 0 1-1.28.44l-1.09-2.55a1 1 0 0 0-1.83.63l-1.51 3.52a1 1 0 0 1-1.84-.78l-.78-1.82a1 1 0 0 0-1.84 1.09l2.83 6.58a1 1 0 0 0 1.28.44l1.09 2.55a1 1 0 0 1-.44 1.28l-4.2 2.52a1 1 0 0 0-.44 1.28l.17.32a1 1 0 0 0 1.28.44l4.2-2.52a1 1 0 0 1 1.28-.44Z"></path></svg>
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </section>
+             
+                         <!-- Section: Communication Support -->
+                         <section class="mb-16">
+                             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 border-l-4 border-teal-500 pl-4 mb-8">コミュニケーション支援</h2>
+                             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                 <!-- App Card: UDトーク -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                         <div class="icon-bg bg-teal-100 text-teal-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">UDトーク</h3>
+                                         <p class="text-gray-600 text-sm mb-4">リアルタイムで会話を文字に変換。聞き取りの難しさを「見える化」で解消。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-teal-100 text-teal-800">会話の見える化</span>
+                                             <span class="app-tag bg-teal-100 text-teal-800">筆談</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span class="font-bold text-green-600">無料</span>
+                                             <div class="flex gap-2">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 21.17a1 1 0 0 0 1.09-1.84l-1.82-.78a1 1 0 0 1-.78-1.84l3.52-1.51a1 1 0 0 0 .63-1.83l-1.09-2.55a1 1 0 0 1 .44-1.28l4.2-2.52a1 1 0 0 0 .44-1.28l-.17-.32a1 1 0 0 0-1.28-.44l-4.2 2.52a1 1 0 0 1-1.28.44l-1.09-2.55a1 1 0 0 0-1.83.63l-1.51 3.52a1 1 0 0 1-1.84-.78l-.78-1.82a1 1 0 0 0-1.84 1.09l2.83 6.58a1 1 0 0 0 1.28.44l1.09 2.55a1 1 0 0 1-.44 1.28l-4.2 2.52a1 1 0 0 0-.44 1.28l.17.32a1 1 0 0 0 1.28.44l4.2-2.52a1 1 0 0 1 1.28-.44Z"></path></svg>
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+             
+                                 <!-- App Card: こえとら -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                         <div class="icon-bg bg-purple-100 text-purple-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">こえとら</h3>
+                                         <p class="text-gray-600 text-sm mb-4">伝えたい言葉を文字で入力すると、代わりに音声で読み上げます。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-purple-100 text-purple-800">テキスト読み上げ</span>
+                                             <span class="app-tag bg-purple-100 text-purple-800">意思伝達</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span class="font-bold text-green-600">無料</span>
+                                             <div class="flex gap-2">
+                                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.83 21.17a1 1 0 0 0 1.09-1.84l-1.82-.78a1 1 0 0 1-.78-1.84l3.52-1.51a1 1 0 0 0 .63-1.83l-1.09-2.55a1 1 0 0 1 .44-1.28l4.2-2.52a1 1 0 0 0 .44-1.28l-.17-.32a1 1 0 0 0-1.28-.44l-4.2 2.52a1 1 0 0 1-1.28.44l-1.09-2.55a1 1 0 0 0-1.83.63l-1.51 3.52a1 1 0 0 1-1.84-.78l-.78-1.82a1 1 0 0 0-1.84 1.09l2.83 6.58a1 1 0 0 0 1.28.44l1.09 2.55a1 1 0 0 1-.44 1.28l-4.2 2.52a1 1 0 0 0-.44 1.28l.17.32a1 1 0 0 0 1.28.44l4.2-2.52a1 1 0 0 1 1.28-.44Z"></path></svg>
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+             
+                                 <!-- App Card: えこみゅ -->
+                                 <div class="app-card p-6 flex flex-col">
+                                     <div class="flex-grow">
+                                         <div class="icon-bg bg-pink-100 text-pink-500 mb-4">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><path d="M17 2v4"></path><path d="M7 2v4"></path><path d="M2 11h20"></path></svg>
+                                         </div>
+                                         <h3 class="text-xl font-bold mb-2">えこみゅ</h3>
+                                         <p class="text-gray-600 text-sm mb-4">絵カードをタップして音声で意思を伝える。オリジナルカードも作成可能。</p>
+                                     </div>
+                                     <div class="mt-auto">
+                                         <div class="flex flex-wrap gap-2 mb-4">
+                                             <span class="app-tag bg-pink-100 text-pink-800">絵カード</span>
+                                             <span class="app-tag bg-pink-100 text-pink-800">カスタム可</span>
+                                         </div>
+                                         <div class="flex justify-between items-center text-sm text-gray-700">
+                                             <span class="font-bold text-green-600">無料</span>
+                                             <div class="flex gap-2">
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2" ry="2"></rect><circle cx="12" cy="18" r="1"></circle></svg>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </section>
+                         
+                         <!-- Section: How to Choose -->
+                         <section>
+                             <h2 class="text-2xl md:text-3xl font-bold text-gray-800 border-l-4 border-orange-500 pl-4 mb-8">アプリを選ぶ際のポイント</h2>
+                             <div class="bg-white rounded-2xl p-8 shadow-lg">
+                                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                     <div class="text-center">
+                                         <div class="icon-bg bg-orange-100 text-orange-500 mx-auto mb-3">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12v10a10 10 0 1 0-10-10z"></path></svg>
+                                         </div>
+                                         <h4 class="font-bold text-lg">専門家へ相談</h4>
+                                         <p class="text-gray-600 text-sm">医師や言語聴覚士に症状に合うか相談しましょう。</p>
+                                     </div>
+                                     <div class="text-center">
+                                         <div class="icon-bg bg-orange-100 text-orange-500 mx-auto mb-3">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                                         </div>
+                                         <h4 class="font-bold text-lg">レベルに合わせる</h4>
+                                         <p class="text-gray-600 text-sm">簡単すぎず、難しすぎないものを選びましょう。</p>
+                                     </div>
+                                     <div class="text-center">
+                                         <div class="icon-bg bg-orange-100 text-orange-500 mx-auto mb-3">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                         </div>
+                                         <h4 class="font-bold text-lg">無料体験を活用</h4>
+                                         <p class="text-gray-600 text-sm">まずは試してみて、操作性や内容を確認しましょう。</p>
+                                     </div>
+                                      <div class="text-center">
+                                         <div class="icon-bg bg-orange-100 text-orange-500 mx-auto mb-3">
+                                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                                         </div>
+                                         <h4 class="font-bold text-lg">本人の興味・関心</h4>
+                                         <p class="text-gray-600 text-sm">本人が楽しく続けられる内容かどうかも大切です。</p>
+                                     </div>
+                                 </div>
+                             </div>
+                         </section>
+                     </main>
+                 </div>
+            </section>
+
             <section id="references" class="mt-16">
                 <h2 class="section-title">引用文献</h2>
                 <div class="card bg-gray-50">
@@ -644,14 +964,16 @@
         </main>
 
         <footer class="text-center mt-16 py-8 border-t">
-            <p class="text-lg font-bold text-[#00A6ED]">未来へ：さらなる個別化と社会参加を目指して</p>
-            <p class="mt-2 text-gray-600">AIによる評価支援、VRを用いた実用的なコミュニケーション訓練、そして患者さん自身が主体となる意思決定。失語症リハビリテーションの進化は、これからも続きます。</p>
+            <p class="text-lg font-bold text-[#00A6ED]">未来へ：テクノロジーと共生し、さらなる個別化と社会参加を目指して</p>
+            <p class="mt-2 text-gray-600">AIによる評価支援、VRを用いた実用的な訓練、そして患者さん自身が主体となる意思決定。失語症リハビリテーションの進化は、これからも続きます。</p>
         </footer>
 
     </div>
 
 <script>
+    // ラベルの自動折り返し関数
     function wrapLabel(str, maxWidth) {
+        if (!str) return '';
         if (str.length <= maxWidth) {
             return str;
         }
@@ -659,11 +981,11 @@
         const lines = [];
         let currentLine = '';
         for (const word of words) {
-            if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+            if ((currentLine + ' ' + word).length > maxWidth && currentLine.length > 0) {
                 lines.push(currentLine.trim());
                 currentLine = '';
             }
-            currentLine += word + ' ';
+            currentLine += (currentLine.length === 0 ? '' : ' ') + word;
         }
         lines.push(currentLine.trim());
         return lines;
@@ -672,47 +994,51 @@
     const tooltipTitleCallback = (tooltipItems) => {
         const item = tooltipItems[0];
         let label = item.chart.data.labels[item.dataIndex];
-        if (Array.isArray(label)) {
-            return label.join(' ');
-        } else {
-            return label;
-        }
+        return Array.isArray(label) ? label.join(' ') : label;
     };
 
-    const chartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: '判断時間 (ミリ秒)',
-                    color: '#004e92',
-                    font: { size: 14 }
+    const createChartConfig = (data, yAxisLabel) => ({
+        type: 'bar',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: yAxisLabel,
+                        color: '#004e92',
+                        font: { size: 14 }
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#004e92',
+                        font: { size: 12, weight: 'bold' },
+                        callback: function(value) {
+                             const label = this.getLabelForValue(value);
+                             return Array.isArray(label) ? label : wrapLabel(label, 8);
+                        }
+                    }
                 }
             },
-            x: {
-                ticks: {
-                    color: '#004e92',
-                    font: { size: 14, weight: 'bold' }
-                }
-            }
-        },
-        plugins: {
-            legend: {
-                display: false
-            },
-            tooltip: {
-                callbacks: {
-                    title: tooltipTitleCallback
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
                 }
             }
         }
-    };
+    });
 
     const typicalityData = {
-        labels: ['典型例 (スズメ)', '非典型例 (ダチョウ)'].map(l => wrapLabel(l, 16)),
+        labels: ['典型例 (スズメ)', '非典型例 (ダチョウ)'],
         datasets: [{
             label: '判断時間',
             data: [850, 1150],
@@ -722,17 +1048,13 @@
         }]
     };
 
-    if (document.getElementById('typicalityChart')) {
-        new Chart(document.getElementById('typicalityChart'), {
-            type: 'bar',
-            data: typicalityData,
-            options: chartOptions
-        });
+    const typicalityChartEl = document.getElementById('typicalityChart');
+    if (typicalityChartEl) {
+        new Chart(typicalityChartEl, createChartConfig(typicalityData, '判断時間 (ミリ秒)'));
     }
 
-
     const primingData = {
-        labels: ['関連あり (医者→看護師)', '関連なし (パン→看護師)'].map(l => wrapLabel(l, 16)),
+        labels: ['関連あり (医者→看護師)', '関連なし (パン→看護師)'],
         datasets: [{
             label: '認識時間',
             data: [550, 700],
@@ -742,12 +1064,9 @@
         }]
     };
 
-    if (document.getElementById('primingChart')) {
-        new Chart(document.getElementById('primingChart'), {
-            type: 'bar',
-            data: primingData,
-            options: chartOptions
-        });
+    const primingChartEl = document.getElementById('primingChart');
+    if (primingChartEl) {
+        new Chart(primingChartEl, createChartConfig(primingData, '認識時間 (ミリ秒)'));
     }
 </script>
 
